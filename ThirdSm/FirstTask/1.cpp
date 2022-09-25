@@ -1,84 +1,122 @@
 #include <iostream>
-#include <bitset>
 
 using namespace std;
 
-//00001
-
-void set_value(int &val)
+void set_value(unsigned &val, const char *msg="Enter value: ")
 {
-	cout << "enter: ";
+	cout << msg;
 	cin >> val;
 }
 
-int zeroing_1(int val)
+void show(unsigned val, const char *msg, unsigned size=sizeof(int))
+{
+	unsigned n = size*8;
+	unsigned maska = (1 << (n-1));
+
+	cout << msg;
+	for(unsigned i = 1; i <= n; i++) {
+		cout << ((val & maska) >> (n-i));
+		maska >>= 1;
+	}
+	cout << endl;
+}
+
+void setting_1(unsigned &val, unsigned &mask)
 {
 	int a = 1<<16;
 	int b = 1<<14;
 	int c = 1;
-	int mask = a + b + c;
-	return val | mask;
+	mask = a + b + c;
+	val |= mask;
 }
 
-int zeroing_2(int val)
+void zeroing_1(unsigned &val, unsigned &mask, unsigned n=3)
 {
-	int mask = 1;
-	for (int i = 0; i < 3; i++){
+	mask = 1;
+	for (unsigned i = 0; i < n-1; i++){
 		mask <<= 1;
 		mask += 1;
 	}
 	mask <<= 2;
-
-	return (val | mask) ^ mask;
+	mask = ~mask;
+	val &= mask;
 }
 
-int multiply(int val, int opd)
+void multiply(unsigned &val, unsigned opd=6)
 {
-	return val << opd;
+	val <<= opd;
 }
 
-int divide(int val, int opd)
+void divide(unsigned &val, unsigned opd=6)
 {
-	return val >> opd;
+	val >>= opd;
 }
 
-int zeroing_3(int val, int opd)
+void zeroing_2(unsigned &val, unsigned &mask, unsigned opd)
 {
-	int mask = 1 << (sizeof(int) - 1);
-	mask >>= (sizeof(int) - opd);
+	mask = 1 << (sizeof(int)*8 - 1);
+	mask >>= (sizeof(int)*8 - opd);
+	mask = ~mask;
 
-	return val & ~mask;
+	val &= mask;
 }
+
+enum { setone=1, zeroing_fr, mult, divd, zeroing_sc };
+
+const char *msg_value = "Value:   ";
+const char *msg_mask = "Mask:    ";
+const char *msg_result = "Result:  ";
+
 int main()
 {
-	cout << "1)" << endl;
-	int x = 0xEB9FC1;
-	cout << bitset<21>(x) << endl;
-	cout << bitset<21>(zeroing_1(x)) << endl;
+	int nm;
+	unsigned value, mask;
+	bool frun = true;
 
-	cout << "2)" << endl;
-	set_value(x);
-	cout << bitset<11>(x) << endl;
-	cout << bitset<11>(zeroing_2(x)) << endl;
-
-	int opd;
-	cout << "3)" << endl;
-	set_value(x);
-	set_value(opd);
-	cout << bitset<11>(x) << endl;
-	cout << bitset<11>(multiply(x, opd)) << endl;
-
-	cout << "4)" << endl;
-	set_value(x);
-	set_value(opd);
-	cout << bitset<11>(x) << endl;
-	cout << bitset<11>(divide(x, opd)) << endl;
-
-	cout << "5)" << endl;
-	set_value(x);
-	set_value(opd);
-	cout << bitset<8*sizeof(int)>(x) << endl;
-	cout << bitset<8*sizeof(int)>(zeroing_3(x, opd)) << endl;
+	while (frun) {
+		cout << "Enter task number: ";
+		cin >> nm;
+		switch(nm) {
+		case setone:
+			value = 0x2BFFE;
+			show(value, msg_value);
+			setting_1(value, mask);
+			show(mask, msg_mask);
+			show(value, msg_result);
+			break;
+		case zeroing_fr:
+			set_value(value);
+			show(value, msg_value);
+			zeroing_1(value, mask);
+			show(mask, msg_mask);
+			show(value, msg_result);
+			break;
+		case mult:
+			set_value(value);
+			show(value, msg_value);
+			multiply(value);
+			show(value, msg_result);
+			break;
+		case divd:
+			set_value(value);
+			show(value, msg_value);
+			divide(value);
+			show(value, msg_result);
+			break;
+		case zeroing_sc:
+			unsigned opd;
+			set_value(value);
+			set_value(opd, "Enter n: ");
+			show(value, msg_value);
+			zeroing_2(value, mask, opd);
+			show(mask, msg_mask);
+			show(value, msg_result);
+			break;
+		default:
+			frun = false;
+			break;
+		}
+	}
 
 	return 0;
 }
