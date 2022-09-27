@@ -18,11 +18,11 @@ const char msg4[] = "5. удаление записи с заданным зна
 
 class BinaryFile {
 public:
-    void Write(std::string name, vector<Phone> autos);
-    void Read(std::string name, vector<Phone> &autos);
-    void Out(std::string name);
-    Phone& Get(std::string name, int index);
-    void GellPhone(std::string name, int index);
+    void Write(std::string name, std::vector<Phone> autos);
+    void Read(std::string name, std::vector<Phone> &autos);
+    void Output(std::string name);
+    const Phone& Get(std::string name, int index) const;
+    void DellPhone(std::string name, int index);
 };
 
 #endif

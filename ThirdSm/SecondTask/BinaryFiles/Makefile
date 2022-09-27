@@ -1,4 +1,4 @@
-SRCMODULES = main.cpp module.cpp phone.cpp
+SRCMODULES = main.cpp BinaryFile.cpp TextFile.cpp Phone.cpp
 OBJMODULES = $(SRCMODULES:.cpp=.o)
 CXXFLAGS = -Wall -g
 
