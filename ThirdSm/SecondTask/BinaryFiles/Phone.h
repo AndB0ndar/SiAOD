@@ -5,16 +5,18 @@
 #include <vector>
 
 class Phone {
-	std::string number;
-	std::string address;
-	std::string name;
+	static const unsigned maxstrlen = 20;
+	char number[maxstrlen+1];
+	char address[maxstrlen+1];
+	char name[maxstrlen+1];
 public:
-    Phone(): number(""), address(""), name("") {}
-    Phone(std::vector<std::string> data);
+    Phone() {};
+    Phone(std::vector<char*> arr);
     Phone(const Phone &obj);
-    bool operator==(const Phone &obj) const;
-	const std::string String() const
-	{ return number + "; " + address + "; " + name; }
+	char* GetNum() { return number; }
+	char* GetAddr() { return address; }
+	char* GetName() { return name; }
+	const std::string String() const;
 };
 
 #endif

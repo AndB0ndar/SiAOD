@@ -1,22 +1,29 @@
+#include <iostream>
+#include <cstring>
 #include "Phone.h"
 
 using namespace std;
 
-Phone::Phone(vector<string> data) {
-	this->number = data[0];
-	this->address = data[1];
-	this->name = data[2];
+Phone::Phone(vector<char*> arr) {
+	strncpy(this->number, arr[0], maxstrlen);
+	strncpy(this->address, arr[1], maxstrlen);
+	strncpy(this->name, arr[2], maxstrlen);
 }
 
 Phone::Phone(const Phone &obj)
 {
-	this->number = obj.number.substr();
-	this->address = obj.address.substr();
-	this->name = obj.name.substr();
+	strncpy(this->number, obj.number, maxstrlen);
+	strncpy(this->address, obj.address, maxstrlen);
+	strncpy(this->name, obj.name, maxstrlen);
 }
 
-bool Phone::operator==(const Phone& obj) const {
-    return number == obj.number 
-		&& address == obj.address 
-		&& name == obj.name;
+const string Phone::String() const
+{
+	string str;
+	str += this->number;
+	str += "; ";
+	str += this->address;
+	str += "; ";
+	str += this->name;
+	return str;
 }

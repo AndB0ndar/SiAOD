@@ -39,17 +39,11 @@ int main()
 		switch (cmd) {
 		case conv_ttb:
 			txtfl.Read(phones);
-			for (Phone ph: phones) {
-				cout << ph.String() << endl;
-			}
 			binfl.Write(phones);
 			phones.clear();
 			break;
 		case conv_btt:
 			binfl.Read(phones);
-			for (Phone ph: phones) {
-				cout << ph.String() << endl;
-			}
 			txtfl.Write(phones);
 			phones.clear();
 			break;
@@ -60,7 +54,7 @@ int main()
 			cout << "Enter index: ";
 			cin >> index;
 			cout << "Phone: " << endl;
-			cout << binfl.Get(index).String();
+			cout << binfl.Get(index).String() << endl;
 			break;
 		case remove_rc:
 			cout << "Enter index: ";

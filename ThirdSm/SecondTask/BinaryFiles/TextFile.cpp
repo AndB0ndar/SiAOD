@@ -14,21 +14,20 @@ void TextFile::Read(vector<Phone> &phs)
     if (!fin) {
         cout << "File doesn't exist\n";
     } else {
-        string line;
-        while (getline(fin, line)) {
-            vector<string> data = vector<string>();
-			size_t start = 0;
-			size_t edge = line.find(";", start);
-			while (edge != string::npos) {
-				string str = line.substr(start, edge-start);
-				data.push_back(str);
+		string line;
+		while (getline(fin, line)) {
+			vector<char*> data = vector<char*>();
+			char *str = const_cast<char *>(line.c_str());
 
-				start = edge + 2;
-				edge = line.find(";", start);
+			char *tmp_char = strtok(str, ";");
+
+			while (tmp_char != NULL) {
+				data.push_back(tmp_char);
+				tmp_char = strtok(NULL, ";");
 			}
             phs.emplace_back(data);
-        }
-        fin.close();
+		 }
+		fin.close();
     }
 }
 
