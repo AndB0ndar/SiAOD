@@ -7,9 +7,11 @@
 #include "Phone.h"
 
 class TextFile {
+	std::string name;
 public:
-	std::vector<Phone> Read(std::string name);
-    void Write(std::string name, std::vector<Phone> phs);
+	TextFile(std::string nm): name(nm) {}
+	void Read(std::vector<Phone> &phs);
+    void Write(const std::vector<Phone> phs);
 };
 
 

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-enum { pr_exit, conv_ttb, conv_btt, out_bf, access, remove_rc };
+enum { conv_ttb, conv_btt, out_bf, access, remove_rc };
 
 int main()
 {
@@ -23,50 +23,59 @@ int main()
 	}
 	ft.close();
 	fb.close();
-	ifstream fbb;
-	fbb.open(binf, ios::in | ios::binary);
+	//ifstream fbb;
+	//fbb.open(binf, ios::in | ios::binary);
+
+	BinaryFile binfl(binf);
+	TextFile txtfl(textf);
+	int index;
+	vector<Phone> phones;
 
 	cout << "Command:" << endl;
 	cout << msg0 << msg1 << msg2 << msg3 << msg4;
 	cout << "(arbon) ";
-	phone_owner *pw;
-	string number;
 	int cmd;
 	while (cin >> cmd) {
 		switch (cmd) {
-		case pr_exit:
-			return 0;
 		case conv_ttb:
-			converting_text_to_binary(textf, binf);
+			txtfl.Read(phones);
+			for (Phone ph: phones) {
+				cout << ph.String() << endl;
+			}
+			binfl.Write(phones);
+			phones.clear();
 			break;
 		case conv_btt:
-			converting_binary_to_text(binf, textf);
+			binfl.Read(phones);
+			for (Phone ph: phones) {
+				cout << ph.String() << endl;
+			}
+			txtfl.Write(phones);
+			phones.clear();
 			break;
 		case out_bf:
-			out_bin_file(binf);
+			binfl.Output();
 			break;
 		case access:
-			int index;
-			cout << "enter index: ";
+			cout << "Enter index: ";
 			cin >> index;
-			pw = get(binf, index);
-			cout << pw->number << " ;";
-			cout << pw->address << " ;";
-			cout << pw->name << endl;
+			cout << "Phone: " << endl;
+			cout << binfl.Get(index).String();
 			break;
 		case remove_rc:
-			cout << "enter line: ";
-			cin.get();
-			getline(cin, number);
-			remove_record(binf, number);
+			cout << "Enter index: ";
+			cin >> index;
+			binfl.DellPhone(index);
 			break;
 		default:
-			break;
+			return 0;
 		}
+		/*
 		if(!fbb.good()) {
 			cout << "Ошибка ввода" << endl;
 			return 1;
 		}
+		*/
 		cout << "(arbon) ";
 	}
 

@@ -7,31 +7,35 @@
 
 using namespace std;
 
-vector<Phone> TextFile::Read(string name)
+void TextFile::Read(vector<Phone> &phs)
 {
-    vector<Phone> result = vector<Phone>();
-    ifstream fin (name);
+	phs.clear();
+    ifstream fin(this->name);
     if (!fin) {
         cout << "File doesn't exist\n";
     } else {
         string line;
         while (getline(fin, line)) {
-            vector<char*> data = vector<char*>();
-            char *str = const_cast<char *>(line.c_str());
-            char *tmp_char;
-            while ((tmp_char = strtok(str, ";")) != 0) {
-                data.push_back(tmp_char);
-            }
-            result.emplace_back(data);
+            vector<string> data = vector<string>();
+			size_t start = 0;
+			size_t edge = line.find(";", start);
+			while (edge != string::npos) {
+				string str = line.substr(start, edge-start);
+				data.push_back(str);
+
+				start = edge + 2;
+				edge = line.find(";", start);
+			}
+            phs.emplace_back(data);
         }
         fin.close();
     }
-	return result;
 }
 
-void TextFile::Write(string name, vector<Phone> phs) {
-    ofstream fout(name);
-    for (Phone ph: phs)
+void TextFile::Write(const vector<Phone> phs) {
+    ofstream fout(this->name, ios::trunc);
+    for (Phone ph: phs) {
         fout << ph.String() << endl;
+	}
     fout.close();
 }
