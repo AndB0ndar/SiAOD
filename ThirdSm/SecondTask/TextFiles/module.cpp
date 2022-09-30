@@ -11,7 +11,6 @@ void create_file(string name_file)
 	fout.open(name_file, ios::out | ios::trunc);
 	unsigned count_line = 2;
 	unsigned count_figure = 2;
-	cout << count_line << "+=+" << count_figure << endl;
 	for (unsigned i = 0; i < count_line; i++) {
 		for (unsigned j = 0; j < count_figure - 1; j++) {
 			fout << rand()%50 << " ";
@@ -50,16 +49,15 @@ int geti(string name_file, int index)
 	ifstream fin;
 	fin.open(name_file, ios::in);
 	int i;
-	for (i = 1; i < index && !fin.eof(); i++) {
-		fin >> x;
-		fin.get();
-	}
-	if (!fin.eof() && i == index) {
+	for (i = 1; i <= index && !fin.eof(); i++) {
 		fin >> x;
 		fin.get();
 	}
 	fin.close();
-	return x;
+	if (i == index) {
+		return x;
+	}
+	return 0;
 }
 
 int count_figure(string name_file)
