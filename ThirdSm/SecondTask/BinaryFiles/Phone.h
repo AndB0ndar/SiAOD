@@ -13,9 +13,9 @@ public:
     Phone() {};
     Phone(std::vector<char*> arr);
     Phone(const Phone &obj);
-	char* GetNum() { return number; }
-	char* GetAddr() { return address; }
-	char* GetName() { return name; }
+	const char* GetNum() const { return number; }
+	const char* GetAddr() const { return address; }
+	const char* GetName() const { return name; }
 	const std::string String() const;
 };
 

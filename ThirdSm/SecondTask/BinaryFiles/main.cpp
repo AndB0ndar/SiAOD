@@ -3,7 +3,7 @@
 
 using namespace std;
 
-enum { conv_ttb, conv_btt, out_bf, access, remove_rc };
+enum { conv_ttb, conv_btt, out_bf, access, remove_rc, genfile, delcph};
 
 int main()
 {
@@ -23,16 +23,17 @@ int main()
 	}
 	ft.close();
 	fb.close();
-	//ifstream fbb;
-	//fbb.open(binf, ios::in | ios::binary);
+	ifstream fbb;
+	fbb.open(binf, ios::in | ios::binary);
 
 	BinaryFile binfl(binf);
 	TextFile txtfl(textf);
 	int index;
+	string str, fl;
 	vector<Phone> phones;
 
 	cout << "Command:" << endl;
-	cout << msg0 << msg1 << msg2 << msg3 << msg4;
+	cout << msg0 << msg1 << msg2 << msg3 << msg4 << msg5 << msg6;
 	cout << "(arbon) ";
 	int cmd;
 	while (cin >> cmd) {
@@ -58,18 +59,28 @@ int main()
 			break;
 		case remove_rc:
 			cout << "Enter index: ";
-			cin >> index;
+			cin >> str;
 			binfl.DellPhone(index);
+			break;
+		case genfile:
+			cout << "Enter number[434]: ";
+			cin >> str;
+			cout << "Enter file name: ";
+			cin >> fl;
+			binfl.GenNwFile(str, fl);
+			break;
+		case delcph:
+			cout << "Enter character[4]: ";
+			cin >> str;
+			binfl.DellCertPhone(str[0]);
 			break;
 		default:
 			return 0;
 		}
-		/*
 		if(!fbb.good()) {
 			cout << "Ошибка ввода" << endl;
 			return 1;
 		}
-		*/
 		cout << "(arbon) ";
 	}
 
