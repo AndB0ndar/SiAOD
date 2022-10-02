@@ -59,7 +59,7 @@ int main()
 			break;
 		case remove_rc:
 			cout << "Enter index: ";
-			cin >> str;
+			cin >> index;
 			binfl.DellPhone(index);
 			break;
 		case genfile:

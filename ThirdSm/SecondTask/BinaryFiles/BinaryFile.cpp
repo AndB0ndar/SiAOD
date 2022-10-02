@@ -51,10 +51,12 @@ void BinaryFile::DellPhone(const unsigned index)
     vector<Phone> phones;
     Read(phones);
 
-	static Phone last(phones.back());
-    phones.erase(phones.begin()+index);
-    phones.insert(phones.begin()+index, last);
-    phones.erase(phones.end());
+	unsigned size = phones.size();
+	if (index >= 0 && index <= size) {
+		phones.erase(phones.begin()+index);
+		phones.insert(phones.begin()+index, phones.back());
+		phones.erase(phones.end());
+	}
 
     Write(phones);
 }

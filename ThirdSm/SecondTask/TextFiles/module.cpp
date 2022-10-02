@@ -54,10 +54,10 @@ int geti(string name_file, int index)
 		fin.get();
 	}
 	fin.close();
-	if (i == index) {
+	if (i-1 == index) {
 		return x;
 	}
-	return 0;
+	return -1;
 }
 
 int count_figure(string name_file)
