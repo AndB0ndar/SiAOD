@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 #include "Phone.h"
-#include "MngHashTabl/HashTable.h"
+#include "MngHeshTabl/HeshTable.h"
 
 class BinaryFile
 {

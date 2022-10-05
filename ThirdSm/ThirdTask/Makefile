@@ -1,4 +1,4 @@
-SRCMODULES = main.cpp BinaryFile.cpp Phone.cpp TextFile.cpp MngHashTabl/HashTable.cpp
+SRCMODULES = main.cpp BinaryFile.cpp Phone.cpp TextFile.cpp MngHeshTabl/HeshTable.cpp
 OBJMODULES = $(SRCMODULES:.cpp=.o)
 CXXFLAGS = -Wall -g
 

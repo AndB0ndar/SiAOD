@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "HashTable.h"
+#include "HeshTable.h"
 
 using namespace std;
 
@@ -122,7 +122,7 @@ unsigned HashTable::Hash2(const char *id) const
 	return key % (size-1) + 1;
 }
 
-void HashTable::OutPut() const
+void HashTable::Output() const
 {
 	for (unsigned i = 0; i < size; i++) {
 		if (table[i] == 0)

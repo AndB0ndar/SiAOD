@@ -17,7 +17,6 @@ void BinaryFile::TextToBinary(const string textfile)
 	}
 }
 
-
 void BinaryFile::Add(const Phone &ph, const int shift)
 {
 	if (shift != -1) {

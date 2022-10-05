@@ -15,13 +15,13 @@ int main()
 	ht.Insert("you", 1);
 	ht.Insert("?", 999);
 
-	ht.OutPut();
+	ht.Output();
 
 	cout << "===========" << ht.GetShift("?") << endl;
 
 	ht.Remove("are");
 
-	ht.OutPut();
+	ht.Output();
 
 	return 0;
 }

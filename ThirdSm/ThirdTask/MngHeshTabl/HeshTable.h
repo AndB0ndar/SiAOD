@@ -19,12 +19,12 @@ public:
 	void Insert(const char *id, const int shift);
 	int Remove(const char *id);
 	int GetShift(const char *id) const;
-	void ReHash();
-	void OutPut() const;
+	void Output() const;
 	void Clear();
 private:
 	unsigned Hash1(const char *id) const;
 	unsigned Hash2(const char *id) const;
+	void ReHash();
 	int Search(const char *id) const;
 };
 
