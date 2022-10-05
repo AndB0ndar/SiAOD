@@ -21,7 +21,7 @@ public:
 	const Phone* Get(const Phone &ph);
     void Output();
 private:
-    void Write(const std::vector<Phone> phs);
+    void Write(const Phone &ph);
     void Read(std::vector<Phone> &phs);
 };
 

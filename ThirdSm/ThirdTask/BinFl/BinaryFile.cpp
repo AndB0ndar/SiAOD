@@ -25,14 +25,8 @@ void BinaryFile::Add(const Phone &ph, const int shift)
 	} else {
 		this->size++;
 	}
-
-    ofstream out(this->name, ios::in | ios::out | ios::binary);
-
 	this->table.Insert(ph.GetId(), this->size-1);
-    out.seekp(this->size-1 * sizeof(Phone), ios::beg);
-	out.write(reinterpret_cast<const char*>(&ph), sizeof(Phone));
-
-    out.close();
+	Write(ph);
 }
 
 void BinaryFile::Remove(const Phone &ph)
@@ -44,7 +38,7 @@ void BinaryFile::Remove(const Phone &ph)
 	vector<Phone> phones;
 	Read(phones);
 	phones.erase(phones.begin()+index);
-	table.Clear();
+	table.Clear();  // id may match
 
 	for (unsigned index = 0; index < phones.size(); index++) { 
 		Add(phones[index], index);
@@ -71,12 +65,13 @@ void BinaryFile::Output()
 		cout << ph.String() << endl;
 }
 
-void BinaryFile::Write(const vector<Phone> phs)
+void BinaryFile::Write(const Phone &ph)
 {
-    ofstream out(this->name, ios::binary | ios::trunc);
-    for (Phone ph: phs) {
-        out.write(reinterpret_cast<const char*>(&ph), sizeof(Phone));
-	}
+    ofstream out(this->name, ios::in | ios::out | ios::binary);
+
+    out.seekp(this->size-1 * sizeof(Phone), ios::beg);
+	out.write(reinterpret_cast<const char*>(&ph), sizeof(Phone));
+
     out.close();
 }
 
