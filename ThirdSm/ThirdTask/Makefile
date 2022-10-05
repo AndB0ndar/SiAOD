@@ -1,4 +1,4 @@
-SRCMODULES = main.cpp 
+SRCMODULES = main.cpp BinaryFile.cpp Phone.cpp TextFile.cpp MngHashTabl/HashTable.cpp
 OBJMODULES = $(SRCMODULES:.cpp=.o)
 CXXFLAGS = -Wall -g
 
@@ -16,6 +16,12 @@ deps.mk: $(SRCMODULES)
 
 run: main
 	./main
+
+error: main
+	valgrind -s --tool=memcheck --leak-check=full ./main 2> VL_LOG.txt 1> STDOUT.txt
+
+debag: main
+	gdb ./main
 
 clean:
 	rm -f *.o *.mk main

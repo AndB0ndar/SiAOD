@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 #include "Phone.h"
-#include "../MngHashTabl/HashTable.h"
+#include "MngHashTabl/HashTable.h"
 
 class BinaryFile
 {
@@ -17,8 +17,8 @@ public:
 	{ std::fstream f(name, std::ios::trunc); f.close(); }
 	void TextToBinary(const std::string textfile);
 	void Add(const Phone &ph, const int shift=-1);
-	void Remove(const Phone &ph);
-	const Phone* Get(const Phone &ph);
+	void Remove(const char *id);
+	const Phone* Search(const char *id);
     void Output();
 private:
     void Write(const Phone &ph);

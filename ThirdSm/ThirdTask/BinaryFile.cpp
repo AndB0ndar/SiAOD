@@ -29,9 +29,9 @@ void BinaryFile::Add(const Phone &ph, const int shift)
 	Write(ph);
 }
 
-void BinaryFile::Remove(const Phone &ph)
+void BinaryFile::Remove(const char *id)
 {
-	int index = this->table.GetShift(ph.GetId());
+	int index = this->table.GetShift(id);
 	if (index == -1)
 		return;
 
@@ -45,12 +45,12 @@ void BinaryFile::Remove(const Phone &ph)
 	}
 }
 
-const Phone* BinaryFile::Get(const Phone &ph)
+const Phone* BinaryFile::Search(const char *id)
 {
 	vector<Phone> phones;
 	Read(phones);
 
-	int shift = this->table.GetShift(ph.GetId());
+	int shift = this->table.GetShift(id);
 	if (shift == -1)
 		return 0;
 
