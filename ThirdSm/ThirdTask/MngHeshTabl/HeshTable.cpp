@@ -39,7 +39,6 @@ void HashTable::Insert(const char *id, const int shift)
 		ReHash();
 	}
 }
-
 int HashTable::Remove(const char *id)
 {
 	unsigned key1 = Hash1(id);
@@ -91,6 +90,7 @@ void HashTable::ReHash()
 	}
 	delete [] tmp_table;
 }
+
 unsigned HashTable::Hash1(const char *id) const
 {
 	unsigned key = 0x0;
@@ -108,6 +108,7 @@ unsigned HashTable::Hash1(const char *id) const
 	}
 	return key;
 }
+
 unsigned HashTable::Hash2(const char *id) const
 {
 	unsigned key = 0x0;
