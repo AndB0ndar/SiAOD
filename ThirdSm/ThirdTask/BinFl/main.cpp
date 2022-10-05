@@ -11,7 +11,6 @@ int main()
 	string binfile = "bin";
 	BinaryFile binf(binfile);
 	binf.TextToBinary(txtfile);
-	binf.Output();
 	vector<const char*> data;
 
 	data.push_back("92523");

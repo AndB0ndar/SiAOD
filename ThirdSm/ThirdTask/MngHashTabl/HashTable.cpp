@@ -6,7 +6,7 @@ using namespace std;
 
 HashTable::HashTable(): size(64)
 {
-	table = new const char*[size];
+	table = new Item*[size];
 	for (unsigned i = 0; i < size; i++) {
 		table[i] = 0;
 	}
@@ -14,20 +14,26 @@ HashTable::HashTable(): size(64)
 
 HashTable::~HashTable()
 {
+	for (unsigned i = 0; i < size; i++) {
+		if (!table[i]) {
+			delete table[i];
+		}
+	}
 	delete [] table;
 }
 
-int HashTable::Insert(const char *id)
+void HashTable::Insert(const char *id, const int shift)
 {
-	unsigned key1 = this->Hash1(id);
+	unsigned key1 = Hash1(id);
 	unsigned key2 = Hash2(id);
 	unsigned index;
 	while (true) {
 		for (unsigned i = 0; i < size; i++) {
 			index = (key1 + i*key2) % size;
 			if (table[index] == 0) {
-				table[index] = id;
-				return index;
+				Item *it = new Item(id, shift);
+				table[index] = it;
+				return;
 			}
 		}
 		ReHash();
@@ -42,9 +48,10 @@ int HashTable::Remove(const char *id)
 	for (unsigned i = 0; i < size; i++) {
 		index = (key1 + i*key2) % size;  // key2 = (key1 + key2) % size
 		if (table[index] != 0) {
-			if (table[index] == id) {
+			if (table[index]->id == id) {
+				int shift = table[index]->shift;
 				table[index] = 0;
-				return index;
+				return shift;
 			}
 		} else {
 			return -1;
@@ -53,37 +60,28 @@ int HashTable::Remove(const char *id)
 	return -1;
 }
 
-int HashTable::Search(const char *id) const
+int HashTable::GetShift(const char *id) const
 {
-	unsigned key1 = Hash1(id);
-	unsigned key2 = Hash2(id);
-	unsigned index;
-	for (unsigned i = 0; i < size; i++) {
-		index = (key1 + i*key2) % size;
-		if (table[index] != 0) {
-			if (table[index] == id)
-				return index;
-		} else {
-			return -1;
-		}
-	}
-	return -1;
+	int index = Search(id);
+	if (index == -1)
+		return index;
+	else
+		return table[index]->shift;
 }
 
 void HashTable::ReHash()
 {
 	size *= 2;
-	const char **tmp_table = table;
-	table = new const char*[size];
+	Item **tmp_table = table;
+	table = new Item*[size];
 	unsigned i;
 	for (i = 0; i < size; i++) {
 		table[i] = 0;
 	}
 
 	for (i = 0; i < size/2; i++) {
-		const char *id = tmp_table[i];
-		if (id != 0)
-			Insert(id);
+		if (tmp_table[i] != 0)
+			Insert(tmp_table[i]->id, tmp_table[i]->shift);
 	}
 	delete [] tmp_table;
 }
@@ -125,6 +123,33 @@ void HashTable::OutPut() const
 		if (table[i] == 0)
 			cout << "null" << endl;
 		else
-			cout << table[i] << endl;
+			cout << table[i]->id << endl;
 	}
+}
+
+void HashTable::Clear()
+{
+	for (unsigned i = 0; i < this->size; i++) {
+		if (!table[i])
+			delete table[i];
+		table[i] = 0;
+	}
+	this->size = 64;
+}
+
+int HashTable::Search(const char *id) const
+{
+	unsigned key1 = Hash1(id);
+	unsigned key2 = Hash2(id);
+	unsigned index;
+	for (unsigned i = 0; i < size; i++) {
+		index = (key1 + i*key2) % size;
+		if (table[index] != 0) {
+			if (table[index]->id == id)
+				return index;
+		} else {
+			return -1;
+		}
+	}
+	return -1;
 }

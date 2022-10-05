@@ -12,18 +12,24 @@ void BinaryFile::TextToBinary(const string textfile)
 	TextFile tf(textfile);
 	vector<Phone> phones;
 	tf.Read(phones);
-	for (Phone ph: phones) { 
-		Add(ph);
+	for (unsigned index = 0; index < phones.size(); index++) { 
+		Add(phones[index], index);
 	}
 }
 
 
-void BinaryFile::Add(const Phone &ph)
+void BinaryFile::Add(const Phone &ph, const int shift)
 {
+	if (shift != -1) {
+		this->size = shift+1;
+	} else {
+		this->size++;
+	}
+
     ofstream out(this->name, ios::in | ios::out | ios::binary);
 
-	int index = this->table.Insert(ph.GetId());
-    out.seekp(index * sizeof(Phone), ios::beg);
+	this->table.Insert(ph.GetId(), this->size-1);
+    out.seekp(this->size-1 * sizeof(Phone), ios::beg);
 	out.write(reinterpret_cast<const char*>(&ph), sizeof(Phone));
 
     out.close();
@@ -31,20 +37,18 @@ void BinaryFile::Add(const Phone &ph)
 
 void BinaryFile::Remove(const Phone &ph)
 {
-	int index = this->table.Remove(ph.GetId());
+	int index = this->table.GetShift(ph.GetId());
 	if (index == -1)
 		return;
 
 	vector<Phone> phones;
 	Read(phones);
-
 	phones.erase(phones.begin()+index);
-	for (Phone p: phones) {
-		if (p.GetId()[0])
-			Add(p);
-	}
+	table.Clear();
 
-	//Write(phones);
+	for (unsigned index = 0; index < phones.size(); index++) { 
+		Add(phones[index], index);
+	}
 }
 
 const Phone* BinaryFile::Get(const Phone &ph)
@@ -52,11 +56,11 @@ const Phone* BinaryFile::Get(const Phone &ph)
 	vector<Phone> phones;
 	Read(phones);
 
-	int index = this->table.Search(ph.GetId());
-	if (index == -1)
+	int shift = this->table.GetShift(ph.GetId());
+	if (shift == -1)
 		return 0;
 
-	return &phones[index];
+	return &phones[shift];
 }
 
 void BinaryFile::Output()

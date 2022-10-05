@@ -8,16 +8,16 @@ int main()
 {
 	HashTable ht;
 
-	ht.Insert("hellow");
-	ht.Insert(",");
-	ht.Insert("how");
-	ht.Insert("are");
-	ht.Insert("you");
-	ht.Insert("?");
+	ht.Insert("hellow", 1);
+	ht.Insert(",", 1);
+	ht.Insert("how", 1);
+	ht.Insert("are", 1);
+	ht.Insert("you", 1);
+	ht.Insert("?", 999);
 
 	ht.OutPut();
 
-	cout << "===========" << ht.Search("?") << endl;
+	cout << "===========" << ht.GetShift("?") << endl;
 
 	ht.Remove("are");
 
