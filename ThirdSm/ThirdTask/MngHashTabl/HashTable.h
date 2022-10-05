@@ -1,11 +1,15 @@
 #ifndef HASH_TABLE_H
 #define HASH_TABLE_H
 
+#include <cstring>
+
 class HashTable {
 	struct Item {
 		const char *id;
 		int shift;
-		Item(const char *id, const int shift): id(id), shift(shift) {}
+		Item(const char *id, const int shift): shift(shift)
+		{ char *tmp_id = new char[strlen(id)]; strcpy(tmp_id, id); this->id = tmp_id; }
+		~Item() { delete id; }
 	};
 	Item **table;
 	unsigned size;

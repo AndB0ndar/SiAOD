@@ -1,4 +1,4 @@
-?
+? :: 999
 null
 null
 null
@@ -17,7 +17,7 @@ null
 null
 null
 null
-hellow
+hellow :: 1
 null
 null
 null
@@ -27,19 +27,13 @@ null
 null
 null
 null
-how
+how :: 1
 null
 null
 null
 null
 null
-,
-null
-null
-null
-null
-null
-null
+, :: 1
 null
 null
 null
@@ -51,7 +45,13 @@ null
 null
 null
 null
-are
+null
+null
+null
+null
+null
+null
+are :: 1
 null
 null
 null
@@ -61,9 +61,9 @@ null
 null
 null
 null
-you
+you :: 1
 ===========999
-?
+? :: 999
 null
 null
 null
@@ -82,7 +82,7 @@ null
 null
 null
 null
-hellow
+hellow :: 1
 null
 null
 null
@@ -92,23 +92,13 @@ null
 null
 null
 null
-how
+how :: 1
 null
 null
 null
 null
 null
-,
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
+, :: 1
 null
 null
 null
@@ -126,4 +116,14 @@ null
 null
 null
 null
-you
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+you :: 1

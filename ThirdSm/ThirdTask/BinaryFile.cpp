@@ -31,7 +31,7 @@ void BinaryFile::Add(const Phone &ph, const int shift)
 
 void BinaryFile::Remove(const char *id)
 {
-	int index = this->table.GetShift(id);
+	int index = this->table.Remove(id);
 	if (index == -1)
 		return;
 
@@ -39,6 +39,7 @@ void BinaryFile::Remove(const char *id)
 	Read(phones);
 	phones.erase(phones.begin()+index);
 	table.Clear();  // id may match
+	Clear();
 
 	for (unsigned index = 0; index < phones.size(); index++) { 
 		Add(phones[index], index);
@@ -67,11 +68,8 @@ void BinaryFile::Output()
 
 void BinaryFile::Write(const Phone &ph)
 {
-    ofstream out(this->name, ios::in | ios::out | ios::binary);
-
-    out.seekp(this->size-1 * sizeof(Phone), ios::beg);
+    ofstream out(this->name, ios::binary | ios::app);
 	out.write(reinterpret_cast<const char*>(&ph), sizeof(Phone));
-
     out.close();
 }
 

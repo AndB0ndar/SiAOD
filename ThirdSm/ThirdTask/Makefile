@@ -18,7 +18,7 @@ run: main
 	./main
 
 error: main
-	valgrind -s --tool=memcheck --leak-check=full ./main 2> VL_LOG.txt 1> STDOUT.txt
+	valgrind --tool=memcheck ./main 2> VL_LOG.txt 1> STDOUT.txt
 
 debag: main
 	gdb ./main

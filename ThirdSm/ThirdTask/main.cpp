@@ -11,6 +11,7 @@ int main()
 	string binfile = "bin";
 	BinaryFile binf(binfile);
 	binf.TextToBinary(txtfile);
+
 	vector<const char*> data;
 
 	data.push_back("92523");
@@ -39,5 +40,14 @@ int main()
 	data.push_back("SVYASLJ");
 	ph = Phone(data);
 	binf.Add(ph);
+	cout << "=======" << endl;
 	binf.Output();
+	cout << "=======" << endl;
+	
+	binf.Remove("8139049283");
+	binf.Output();
+	cout << "=======" << endl;
+
+	cout << "=======" << endl;
+	cout << binf.Search("43475902")->String() << endl;
 }

@@ -10,11 +10,11 @@
 class BinaryFile
 {
 	std::string name;
-	HashTable table;
 	int size;
+	HashTable table;
 public:
 	BinaryFile(const std::string nm): name(nm), size(0)
-	{ std::fstream f(name, std::ios::trunc); f.close(); }
+	{ Clear(); }
 	void TextToBinary(const std::string textfile);
 	void Add(const Phone &ph, const int shift=-1);
 	void Remove(const char *id);
@@ -23,6 +23,8 @@ public:
 private:
     void Write(const Phone &ph);
     void Read(std::vector<Phone> &phs);
+	void Clear()
+	{ std::ofstream f(name, std::ios::trunc); f.close(); }
 };
 
 #endif
