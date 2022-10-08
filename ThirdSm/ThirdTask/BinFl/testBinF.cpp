@@ -45,10 +45,10 @@ int main()
 	binf.Output();
 	cout << "=======" << endl;
 	
-	binf.Remove("8139049283");
+	int line;
+	cout << "Entre number: ";
+	cin >> line;
 	cout << "=======" << endl;
-	binf.Output();
-	cout << "=======" << endl;
-	cout << binf.Read(0).String() << endl;
+	cout << binf.Read(line).String() << endl;
 	return 0;
 }

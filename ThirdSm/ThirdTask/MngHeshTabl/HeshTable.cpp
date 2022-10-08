@@ -4,7 +4,14 @@
 
 using namespace std;
 
-HashTable::HashTable(): size(64)
+HeshTable::Item::Item(const char *id, const int shift): shift(shift)
+{ 
+	char *tmp_id = new char[strlen(id)];
+	strcpy(tmp_id, id);
+	this->id = tmp_id;
+}
+
+HeshTable::HeshTable(): size(4)
 {
 	table = new Item*[size];
 	for (unsigned i = 0; i < size; i++) {
@@ -12,17 +19,17 @@ HashTable::HashTable(): size(64)
 	}
 }
 
-HashTable::~HashTable()
+HeshTable::~HeshTable()
 {
 	for (unsigned i = 0; i < size; i++) {
-		if (!table[i]) {
+		if (table[i]) {
 			delete table[i];
 		}
 	}
 	delete [] table;
 }
 
-void HashTable::Insert(const char *id, const int shift)
+void HeshTable::Insert(const char *id, const int shift)
 {
 	unsigned key1 = Hash1(id);
 	unsigned key2 = Hash2(id);
@@ -39,7 +46,7 @@ void HashTable::Insert(const char *id, const int shift)
 		ReHash();
 	}
 }
-int HashTable::Remove(const char *id)
+int HeshTable::Remove(const char *id)
 {
 	unsigned key1 = Hash1(id);
 	unsigned key2 = Hash2(id);
@@ -53,24 +60,22 @@ int HashTable::Remove(const char *id)
 				table[index] = 0;
 				return shift;
 			}
-		} else {
-			return -1;
 		}
 	}
 	return -1;
 }
 
-int HashTable::GetShift(const char *id) const
+int HeshTable::GetShift(const char *id) const
 {
 	int index = Search(id);
 	if (index == -1)
 		return index;
-	else
-		return table[index]->shift;
+	return table[index]->shift;
 }
 
-void HashTable::ReHash()
+void HeshTable::ReHash()
 {
+	unsigned old_size = size;
 	size *= 2;
 	Item **tmp_table = table;
 	table = new Item*[size];
@@ -78,20 +83,16 @@ void HashTable::ReHash()
 	for (i = 0; i < size; i++) {
 		table[i] = 0;
 	}
-
-	for (i = 0; i < size/2; i++) {
-		if (tmp_table[i] != 0)
+	for (i = 0; i < old_size; i++) {
+		if (tmp_table[i] != 0) {
 			Insert(tmp_table[i]->id, tmp_table[i]->shift);
-	}
-	for (unsigned i = 0; i < size; i++) {
-		if (!table[i]) {
-			delete table[i];
+			delete tmp_table[i];
 		}
 	}
 	delete [] tmp_table;
 }
 
-unsigned HashTable::Hash1(const char *id) const
+unsigned HeshTable::Hash1(const char *id) const
 {
 	unsigned key = 0x0;
 	for (unsigned i = 0; i < strlen(id); i++) {
@@ -109,7 +110,7 @@ unsigned HashTable::Hash1(const char *id) const
 	return key;
 }
 
-unsigned HashTable::Hash2(const char *id) const
+unsigned HeshTable::Hash2(const char *id) const
 {
 	unsigned key = 0x0;
 	unsigned sum = 0;
@@ -123,7 +124,7 @@ unsigned HashTable::Hash2(const char *id) const
 	return key % (size-1) + 1;
 }
 
-void HashTable::Output() const
+void HeshTable::Output() const
 {
 	for (unsigned i = 0; i < size; i++) {
 		if (table[i] == 0)
@@ -133,7 +134,7 @@ void HashTable::Output() const
 	}
 }
 
-void HashTable::Clear()
+void HeshTable::Clear()
 {
 	for (unsigned i = 0; i < this->size; i++) {
 		if (!table[i])
@@ -143,18 +144,18 @@ void HashTable::Clear()
 	this->size = 64;
 }
 
-int HashTable::Search(const char *id) const
+int HeshTable::Search(const char *id) const
 {
 	unsigned key1 = Hash1(id);
 	unsigned key2 = Hash2(id);
-	unsigned index;
-	for (unsigned i = 0; i < size; i++) {
-		index = (key1 + i*key2) % size;
+	unsigned i, index;
+	for (i = 0, index = key1; i < size; i++, index+=key2) {
+		index %= size;
+		// index = (key1 + i*key2) % size;
 		if (table[index] != 0) {
-			if (0 == strcmp(table[index]->id, id))
+			if (0 == strcmp(table[index]->id, id)) {
 				return index;
-		} else {
-			return -1;
+			}
 		}
 	}
 	return -1;

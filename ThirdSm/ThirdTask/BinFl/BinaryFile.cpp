@@ -7,19 +7,21 @@
 
 using namespace std;
 
-void BinaryFile::TextToBinary(const string textfile)
+int BinaryFile::TextToBinary(const string textfile)
 {
 	TextFile tf(textfile);
 	vector<Phone> phones;
 	tf.Read(phones);
 	for (unsigned index = 0; index < phones.size(); index++)
 		Write(phones[index]);
+	return phones.size();
 }
 
 void BinaryFile::Write(const Phone &ph)
 {
     ofstream out(this->name, ios::binary | ios::app);
 	out.write(reinterpret_cast<const char*>(&ph), sizeof(Phone));
+	this->size++;
     out.close();
 }
 
@@ -50,7 +52,7 @@ Phone BinaryFile::Read(const int shift) const
 	return tmp;
 }
 
-void BinaryFile::Output()
+void BinaryFile::Output() const
 {
     ifstream in(this->name, ios::binary);
     Phone ph;

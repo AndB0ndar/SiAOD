@@ -9,15 +9,17 @@
 class BinaryFile
 {
 	std::string name;
-	int size;
+	unsigned size;
 public:
-	BinaryFile(const std::string nm): name(nm), size(0)
-	{ Clear(); }
-	void TextToBinary(const std::string textfile);
+	BinaryFile(const std::string nm): name(nm), size(0) { Clear(); }
+	BinaryFile(const BinaryFile &bf): name(bf.GetName()), size(bf.GetSize()) {}
+	int TextToBinary(const std::string textfile);
     void Write(const Phone &ph);
 	void Remove(const char *id);
     Phone Read(const int shift) const;
-	void Output();
+	const std::string GetName() const { return name; }
+	unsigned GetSize() const { return size; }
+	void Output() const;
 private:
 	void Clear()
 	{ std::ofstream f(name, std::ios::trunc); f.close(); }

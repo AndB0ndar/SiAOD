@@ -1,306 +1,673 @@
-==4286== Memcheck, a memory error detector
-==4286== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==4286== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==4286== Command: ./main
-==4286== 
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109348: main (main.cpp:11)
-==4286==  Address 0x4db6f16 is 0 bytes after a block of size 6 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109348: main (main.cpp:11)
-==4286== 
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109360: main (main.cpp:12)
-==4286==  Address 0x4db6fb1 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109360: main (main.cpp:12)
-==4286== 
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109378: main (main.cpp:13)
-==4286==  Address 0x4db7053 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109378: main (main.cpp:13)
-==4286== 
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286==  Address 0x4db70f3 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286== 
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093A8: main (main.cpp:15)
-==4286==  Address 0x4db7193 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093A8: main (main.cpp:15)
-==4286== 
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== Invalid read of size 1
-==4286==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==4286==    by 0x109D3F: HashTable::OutPut() const (HashTable.cpp:131)
-==4286==    by 0x1093CC: main (main.cpp:18)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== Invalid read of size 1
-==4286==    at 0x483FEE8: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109EE2: HashTable::Search(char const*) const (HashTable.cpp:153)
-==4286==    by 0x10987E: HashTable::GetShift(char const*) const (HashTable.cpp:66)
-==4286==    by 0x1093F5: main (main.cpp:20)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== Invalid read of size 1
-==4286==    at 0x483FEE8: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x1097D1: HashTable::Remove(char const*) (HashTable.cpp:51)
-==4286==    by 0x109427: main (main.cpp:22)
-==4286==  Address 0x4db70f3 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286== 
-==4286== Mismatched free() / delete / delete []
-==4286==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FEC: HashTable::Item::~Item() (HashTable.h:12)
-==4286==    by 0x109810: HashTable::Remove(char const*) (HashTable.cpp:53)
-==4286==    by 0x109427: main (main.cpp:22)
-==4286==  Address 0x4db70f0 is 0 bytes inside a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286== 
-==4286== Invalid read of size 1
-==4286==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==4286==    by 0x109D3F: HashTable::OutPut() const (HashTable.cpp:131)
-==4286==    by 0x109433: main (main.cpp:24)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== 
-==4286== HEAP SUMMARY:
-==4286==     in use at exit: 94 bytes in 10 blocks
-==4286==   total heap usage: 15 allocs, 5 frees, 77,425 bytes allocated
-==4286== 
-==4286== 17 (16 direct, 1 indirect) bytes in 1 blocks are definitely lost in loss record 6 of 10
-==4286==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x1096A0: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109360: main (main.cpp:12)
-==4286== 
-==4286== 17 (16 direct, 1 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 10
-==4286==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x1096A0: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== 19 (16 direct, 3 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 10
-==4286==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x1096A0: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109378: main (main.cpp:13)
-==4286== 
-==4286== 19 (16 direct, 3 indirect) bytes in 1 blocks are definitely lost in loss record 9 of 10
-==4286==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x1096A0: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093A8: main (main.cpp:15)
-==4286== 
-==4286== 22 (16 direct, 6 indirect) bytes in 1 blocks are definitely lost in loss record 10 of 10
-==4286==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x1096A0: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109348: main (main.cpp:11)
-==4286== 
-==4286== LEAK SUMMARY:
-==4286==    definitely lost: 80 bytes in 5 blocks
-==4286==    indirectly lost: 14 bytes in 5 blocks
-==4286==      possibly lost: 0 bytes in 0 blocks
-==4286==    still reachable: 0 bytes in 0 blocks
-==4286==         suppressed: 0 bytes in 0 blocks
-==4286== 
-==4286== ERROR SUMMARY: 25 errors from 16 contexts (suppressed: 0 from 0)
-==4286== 
-==4286== 1 errors in context 1 of 16:
-==4286== Mismatched free() / delete / delete []
-==4286==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FEC: HashTable::Item::~Item() (HashTable.h:12)
-==4286==    by 0x109810: HashTable::Remove(char const*) (HashTable.cpp:53)
-==4286==    by 0x109427: main (main.cpp:22)
-==4286==  Address 0x4db70f0 is 0 bytes inside a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286== 
-==4286== 
-==4286== 1 errors in context 2 of 16:
-==4286== Invalid read of size 1
-==4286==    at 0x483FEE8: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x1097D1: HashTable::Remove(char const*) (HashTable.cpp:51)
-==4286==    by 0x109427: main (main.cpp:22)
-==4286==  Address 0x4db70f3 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286== 
-==4286== 
-==4286== 1 errors in context 3 of 16:
-==4286== Invalid read of size 1
-==4286==    at 0x483FEE8: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109EE2: HashTable::Search(char const*) const (HashTable.cpp:153)
-==4286==    by 0x10987E: HashTable::GetShift(char const*) const (HashTable.cpp:66)
-==4286==    by 0x1093F5: main (main.cpp:20)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== 
-==4286== 1 errors in context 4 of 16:
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== 
-==4286== 1 errors in context 5 of 16:
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093A8: main (main.cpp:15)
-==4286==  Address 0x4db7193 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093A8: main (main.cpp:15)
-==4286== 
-==4286== 
-==4286== 1 errors in context 6 of 16:
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286==  Address 0x4db70f3 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109390: main (main.cpp:14)
-==4286== 
-==4286== 
-==4286== 1 errors in context 7 of 16:
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109378: main (main.cpp:13)
-==4286==  Address 0x4db7053 is 0 bytes after a block of size 3 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109378: main (main.cpp:13)
-==4286== 
-==4286== 
-==4286== 1 errors in context 8 of 16:
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109360: main (main.cpp:12)
-==4286==  Address 0x4db6fb1 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109360: main (main.cpp:12)
-==4286== 
-==4286== 
-==4286== 1 errors in context 9 of 16:
-==4286== Invalid write of size 1
-==4286==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109FB5: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109348: main (main.cpp:11)
-==4286==  Address 0x4db6f16 is 0 bytes after a block of size 6 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x109348: main (main.cpp:11)
-==4286== 
-==4286== 
-==4286== 5 errors in context 10 of 16:
-==4286== Invalid read of size 1
-==4286==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==4286==    by 0x109D3F: HashTable::OutPut() const (HashTable.cpp:131)
-==4286==    by 0x109433: main (main.cpp:24)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== 
-==4286== 6 errors in context 11 of 16:
-==4286== Invalid read of size 1
-==4286==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==4286==    by 0x109D3F: HashTable::OutPut() const (HashTable.cpp:131)
-==4286==    by 0x1093CC: main (main.cpp:18)
-==4286==  Address 0x4db7231 is 0 bytes after a block of size 1 alloc'd
-==4286==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4286==    by 0x109F9E: HashTable::Item::Item(char const*, int) (HashTable.h:11)
-==4286==    by 0x1096B5: HashTable::Insert(char const*, int) (HashTable.cpp:34)
-==4286==    by 0x1093C0: main (main.cpp:16)
-==4286== 
-==4286== ERROR SUMMARY: 25 errors from 16 contexts (suppressed: 0 from 0)
+==16046== Memcheck, a memory error detector
+==16046== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16046== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==16046== Command: ./testHeshT
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046==  Address 0x4db7d76 is 0 bytes after a block of size 6 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046==  Address 0x4db7d76 is 0 bytes after a block of size 6 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046==  Address 0x4db7eb3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046==  Address 0x4db7eb3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046==  Address 0x4db7f53 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046==  Address 0x4db7f53 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x109FD5: HeshTable::Output() const (HeshTable.cpp:143)
+==16046==    by 0x109AB6: HeshTable::ReHash() (HeshTable.cpp:84)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109CCB: HeshTable::Hash1(char const*) const (HeshTable.cpp:107)
+==16046==    by 0x109722: HeshTable::Insert(char const*, int) (HeshTable.cpp:35)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109E70: HeshTable::Hash2(char const*) const (HeshTable.cpp:127)
+==16046==    by 0x109760: HeshTable::Insert(char const*, int) (HeshTable.cpp:37)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109588: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483F0B2: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db8071 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db8071 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== Mismatched free() / delete / delete []
+==16046==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x10A244: HeshTable::Item::~Item() (HeshTable.h:11)
+==16046==    by 0x109C3F: HeshTable::ReHash() (HeshTable.cpp:97)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e10 is 0 bytes inside a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db82f3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db82f3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046==  Address 0x4db8391 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046==  Address 0x4db8391 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x109FD5: HeshTable::Output() const (HeshTable.cpp:143)
+==16046==    by 0x1093EC: main (testHeshT.cpp:18)
+==16046==  Address 0x4db8391 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046== 
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db8432 is 0 bytes after a block of size 2 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046== 
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db8432 is 0 bytes after a block of size 2 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046== 
+==16046== Invalid read of size 8
+==16046==    at 0x109BD7: HeshTable::ReHash() (HeshTable.cpp:95)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db90e0 is 0 bytes after a block of size 256 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109B1E: HeshTable::ReHash() (HeshTable.cpp:88)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046== 
+==16046== Invalid read of size 8
+==16046==    at 0x109BF1: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db90f8 is 24 bytes after a block of size 256 in arena "client"
+==16046== 
+==16046== Invalid read of size 4
+==16046==    at 0x109BF4: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x148 is not stack'd, malloc'd or (recently) free'd
+==16046== 
+==16046== 
+==16046== Process terminating with default action of signal 11 (SIGSEGV)
+==16046==  Access not within mapped region at address 0x148
+==16046==    at 0x109BF4: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  If you believe this happened as a result of a stack
+==16046==  overflow in your program's main thread (unlikely but
+==16046==  possible), you can try to increase the size of the
+==16046==  main thread stack using the --main-stacksize= flag.
+==16046==  The main thread stack size used in this run was 8388608.
+==16046== 
+==16046== HEAP SUMMARY:
+==16046==     in use at exit: 1,861 bytes in 66 blocks
+==16046==   total heap usage: 202 allocs, 136 frees, 80,586 bytes allocated
+==16046== 
+==16046== LEAK SUMMARY:
+==16046==    definitely lost: 0 bytes in 0 blocks
+==16046==    indirectly lost: 0 bytes in 0 blocks
+==16046==      possibly lost: 0 bytes in 0 blocks
+==16046==    still reachable: 1,861 bytes in 66 blocks
+==16046==         suppressed: 0 bytes in 0 blocks
+==16046== Reachable blocks (those to which a pointer was found) are not shown.
+==16046== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==16046== 
+==16046== ERROR SUMMARY: 894 errors from 26 contexts (suppressed: 0 from 0)
+==16046== 
+==16046== 1 errors in context 1 of 26:
+==16046== Invalid read of size 4
+==16046==    at 0x109BF4: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x148 is not stack'd, malloc'd or (recently) free'd
+==16046== 
+==16046== 
+==16046== 1 errors in context 2 of 26:
+==16046== Invalid read of size 8
+==16046==    at 0x109BF1: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db90f8 is 24 bytes after a block of size 256 in arena "client"
+==16046== 
+==16046== 
+==16046== 1 errors in context 3 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046==  Address 0x4db8391 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046== 
+==16046== 
+==16046== 1 errors in context 4 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046==  Address 0x4db8391 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046== 
+==16046== 
+==16046== 1 errors in context 5 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db82f3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== 
+==16046== 1 errors in context 6 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db82f3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== 
+==16046== 1 errors in context 7 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046==  Address 0x4db7f53 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046== 
+==16046== 
+==16046== 1 errors in context 8 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046==  Address 0x4db7f53 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093B0: main (testHeshT.cpp:14)
+==16046== 
+==16046== 
+==16046== 1 errors in context 9 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046==  Address 0x4db7eb3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046== 
+==16046== 
+==16046== 1 errors in context 10 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046==  Address 0x4db7eb3 is 0 bytes after a block of size 3 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109398: main (testHeshT.cpp:13)
+==16046== 
+==16046== 
+==16046== 1 errors in context 11 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== 
+==16046== 1 errors in context 12 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== 
+==16046== 1 errors in context 13 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046==  Address 0x4db7d76 is 0 bytes after a block of size 6 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046== 
+==16046== 
+==16046== 1 errors in context 14 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046==  Address 0x4db7d76 is 0 bytes after a block of size 6 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109368: main (testHeshT.cpp:11)
+==16046== 
+==16046== 
+==16046== 4 errors in context 15 of 26:
+==16046== Invalid read of size 8
+==16046==    at 0x109BD7: HeshTable::ReHash() (HeshTable.cpp:95)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db90e0 is 0 bytes after a block of size 256 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109B1E: HeshTable::ReHash() (HeshTable.cpp:88)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046== 
+==16046== 
+==16046== 6 errors in context 16 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x109FD5: HeshTable::Output() const (HeshTable.cpp:143)
+==16046==    by 0x1093EC: main (testHeshT.cpp:18)
+==16046==  Address 0x4db8391 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x1093E0: main (testHeshT.cpp:16)
+==16046== 
+==16046== 
+==16046== 26 errors in context 17 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db8432 is 0 bytes after a block of size 2 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046== 
+==16046== 
+==16046== 26 errors in context 18 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046==  Address 0x4db8432 is 0 bytes after a block of size 2 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x10940F: main (testHeshT.cpp:21)
+==16046== 
+==16046== 
+==16046== 65 errors in context 19 of 26:
+==16046== Mismatched free() / delete / delete []
+==16046==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x10A244: HeshTable::Item::~Item() (HeshTable.h:11)
+==16046==    by 0x109C3F: HeshTable::ReHash() (HeshTable.cpp:97)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e10 is 0 bytes inside a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== 
+==16046== 65 errors in context 20 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x10988B: HeshTable::Insert(char const*, int) (HeshTable.cpp:47)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db8071 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== 
+==16046== 65 errors in context 21 of 26:
+==16046== Invalid write of size 1
+==16046==    at 0x483F0BE: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db8071 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046== 
+==16046== 
+==16046== 65 errors in context 22 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483F0B2: strcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x1095A7: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:10)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== 
+==16046== 65 errors in context 23 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109588: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== 
+==16046== 65 errors in context 24 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x4995BCD: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==16046==    by 0x109FD5: HeshTable::Output() const (HeshTable.cpp:143)
+==16046==    by 0x109AB6: HeshTable::ReHash() (HeshTable.cpp:84)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== 
+==16046== 214 errors in context 25 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109E70: HeshTable::Hash2(char const*) const (HeshTable.cpp:127)
+==16046==    by 0x109760: HeshTable::Insert(char const*, int) (HeshTable.cpp:37)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== 
+==16046== 214 errors in context 26 of 26:
+==16046== Invalid read of size 1
+==16046==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109CCB: HeshTable::Hash1(char const*) const (HeshTable.cpp:107)
+==16046==    by 0x109722: HeshTable::Insert(char const*, int) (HeshTable.cpp:35)
+==16046==    by 0x109C1D: HeshTable::ReHash() (HeshTable.cpp:96)
+==16046==    by 0x1098B7: HeshTable::Insert(char const*, int) (HeshTable.cpp:51)
+==16046==    by 0x1093C8: main (testHeshT.cpp:15)
+==16046==  Address 0x4db7e11 is 0 bytes after a block of size 1 alloc'd
+==16046==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16046==    by 0x109590: HeshTable::Item::Item(char const*, int) (HeshTable.cpp:9)
+==16046==    by 0x109837: HeshTable::Insert(char const*, int) (HeshTable.cpp:45)
+==16046==    by 0x109380: main (testHeshT.cpp:12)
+==16046== 
+==16046== ERROR SUMMARY: 894 errors from 26 contexts (suppressed: 0 from 0)
+Segmentation fault (core dumped)

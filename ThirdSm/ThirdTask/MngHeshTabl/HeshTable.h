@@ -3,29 +3,29 @@
 
 #include <cstring>
 
-class HashTable {
+class HeshTable {
 	struct Item {
 		const char *id;
 		int shift;
-		Item(const char *id, const int shift): shift(shift)
-		{ char *tmp_id = new char[strlen(id)]; strcpy(tmp_id, id); this->id = tmp_id; }
+		Item(const char *id, const int shift);
 		~Item() { delete id; }
 	};
 	Item **table;
 	unsigned size;
 public:
-	HashTable();
-	~HashTable();
+	HeshTable();
+	~HeshTable();
 	void Insert(const char *id, const int shift);
 	int Remove(const char *id);
 	int GetShift(const char *id) const;
 	void Output() const;
-	void Clear();
+	unsigned GetSize() { return size; }
 private:
 	unsigned Hash1(const char *id) const;
 	unsigned Hash2(const char *id) const;
-	void ReHash();
 	int Search(const char *id) const;
+	void ReHash();
+	void Clear();
 };
 
 #endif

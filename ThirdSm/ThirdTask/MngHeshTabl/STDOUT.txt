@@ -1,101 +1,462 @@
-? :: 999
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-hellow :: 1
-null
-null
-null
-null
-null
-null
-null
-null
-null
+d
+d
+d
+==3
+id: hellow
+d
+d
+d
+==0
+id: ,
+d
+d
+d
+==1
+id: how
+d
+d
+d
+==2
+id: are
+d
+d
+d
+=+=+=+=+=
+=====
+, :: 1
 how :: 1
-null
-null
-null
-null
-null
+are :: 1
+hellow :: 1
+=====
+=+=+=+=+=
+-0-8-0-
+d
+d
+d
+==3
+id: ,
+d
+d
+d
+==5
+id: how
+d
+d
+d
+==7
+id: are
+d
+d
+d
+==1
+id: hellow
+=delete=
+==2
+id: you
+d
+d
+d
+==0
+id: ?
+=====
+? :: 999
+hellow :: 1
+you :: 1
 , :: 1
 null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
+how :: 1
 null
 are :: 1
-null
-null
-null
-null
-null
-null
-null
-null
-null
-you :: 1
-===========999
+=====
+d
+d
+d
+==6
+id: aa
+d
+d
+d
+==4
+id: aa
+d
+d
+d
+=+=+=+=+=
+=====
 ? :: 999
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
 hellow :: 1
-null
-null
-null
-null
-null
-null
-null
-null
-null
+you :: 1
+, :: 1
+aa :: 1
 how :: 1
+aa :: 0
+are :: 1
+=====
+=+=+=+=+=
+-0-16-0-
+d
+d
+d
+==15
+id: ?
+d
+d
+d
+==3
+id: hellow
+d
+d
+d
+==5
+id: you
+d
+d
+d
+==13
+id: ,
+d
+d
+d
+==0
+id: aa
+d
+d
+d
+==9
+id: how
+d
+d
+d
+==2
+id: aa
+d
+d
+d
+==12
+id: are
+=delete=
+==6
+id: aa
+d
+d
+d
+==11
+id: aa
+d
+d
+d
+==4
+id: aa
+d
+d
+d
+==8
+id: aa
+d
+d
+d
+==1
+id: aa
+d
+d
+d
+==10
+id: aa
+d
+d
+d
+==14
+id: aa
+d
+d
+d
+==7
+id: aa
+d
+d
+d
+=+=+=+=+=
+=====
+aa :: 1
+aa :: 6
+aa :: 0
+hellow :: 1
+aa :: 4
+you :: 1
+aa :: 2
+aa :: 9
+aa :: 5
+how :: 1
+aa :: 7
+aa :: 3
+are :: 1
+, :: 1
+aa :: 8
+? :: 999
+=====
+=+=+=+=+=
+-0-32-0-
+d
+d
+d
+==0
+id: aa
+d
+d
+d
+==13
+id: aa
+d
+d
+d
+==26
+id: aa
+d
+d
+d
+==19
+id: hellow
+d
+d
+d
+==7
+id: aa
+d
+d
+d
+==31
+id: you
+d
+d
+d
+==20
+id: aa
+d
+d
+d
+==1
+id: aa
+d
+d
+d
+==14
+id: aa
+d
+d
+d
+==29
+id: how
+d
+d
+d
+==27
+id: aa
+d
+d
+d
+==8
+id: aa
+d
+d
+d
+==21
+id: are
+d
+d
+d
+==3
+id: ,
+d
+d
+d
+==2
+id: aa
+d
+d
+d
+==23
+id: ?
+=delete=
+==9
+id: aa
+d
+d
+d
+==15
+id: aa
+d
+d
+d
+==28
+id: aa
+d
+d
+d
+==22
+id: aa
+d
+d
+d
+==16
+id: aa
+d
+d
+d
+==10
+id: aa
+d
+d
+d
+==4
+id: aa
+d
+d
+d
+==17
+id: aa
+d
+d
+d
+==30
+id: aa
+d
+d
+d
+==11
+id: aa
+d
+d
+d
+==24
+id: aa
+d
+d
+d
+==5
+id: aa
+d
+d
+d
+==18
+id: aa
+d
+d
+d
+==12
+id: aa
+d
+d
+d
+==25
+id: aa
+d
+d
+d
+==6
+id: aa
+d
+d
+d
+=+=+=+=+=
+=====
+aa :: 1
+aa :: 9
+aa :: 8
+, :: 1
+aa :: 16
+aa :: 21
+aa :: 25
+aa :: 4
+aa :: 3
+aa :: 10
+aa :: 15
+aa :: 19
+aa :: 23
+aa :: 6
+aa :: 5
+aa :: 11
+aa :: 14
+aa :: 17
+aa :: 22
+hellow :: 1
+aa :: 2
+are :: 1
+aa :: 13
+? :: 999
+aa :: 20
+aa :: 24
+aa :: 0
+aa :: 7
+aa :: 12
+how :: 1
+aa :: 18
+you :: 1
+=====
+=+=+=+=+=
+-0-64-0-
+d
+d
+d
+==0
+id: aa
+d
+d
+d
+==48
+id: aa
+d
+d
+d
+==32
+id: aa
+d
+d
+d
+==35
+id: ,
+d
+d
+d
+==16
+id: aa
+d
+d
+d
+=+=+=+=+=
+=====
+aa :: 1
 null
 null
 null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+aa :: 16
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+aa :: 8
 null
 null
 , :: 1
@@ -111,6 +472,7 @@ null
 null
 null
 null
+aa :: 9
 null
 null
 null
@@ -126,4 +488,164 @@ null
 null
 null
 null
-you :: 1
+=====
+=+=+=+=+=
+-0-128-0-
+d
+d
+d
+==0
+id: aa
+d
+d
+d
+==98
+id: aa
+d
+d
+d
+==68
+id: aa
+d
+d
+d
+==99
+id: ,
+d
+d
+d
+==38
+id: aa
+=delete=
+==48
+id: aa
+d
+d
+d
+==8
+id: aa
+d
+d
+d
+==106
+id: aa
+d
+d
+d
+==76
+id: aa
+d
+d
+d
+==46
+id: aa
+d
+d
+d
+==16
+id: aa
+d
+d
+d
+==114
+id: aa
+d
+d
+d
+==84
+id: aa
+d
+d
+d
+==54
+id: aa
+d
+d
+d
+==24
+id: aa
+d
+d
+d
+==122
+id: aa
+d
+d
+d
+==92
+id: aa
+d
+d
+d
+==62
+id: aa
+d
+d
+d
+==32
+id: aa
+d
+d
+d
+==83
+id: hellow
+d
+d
+d
+==2
+id: aa
+d
+d
+d
+==53
+id: are
+d
+d
+d
+==100
+id: aa
+d
+d
+d
+==63
+id: ?
+d
+d
+d
+==70
+id: aa
+d
+d
+d
+==40
+id: aa
+d
+d
+d
+==10
+id: aa
+d
+d
+d
+==108
+id: aa
+d
+d
+d
+==78
+id: aa
+d
+d
+d
+==29
+id: how
+d
+d
+d
+==18
+id: aa
+d
+d
+d
+==127
+id: you
