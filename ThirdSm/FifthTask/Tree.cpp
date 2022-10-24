@@ -19,7 +19,6 @@ void Tree::Add(char dt)
 		int a = PathLength((*it)->left);
 		int b = PathLength((*it)->right);
 		it = (a <= b) ? &((*it)->left) : &((*it)->right);
-		cout << ((a <= b) ? "left" : "right") << endl;
 	}
 	*it = node;
 }
