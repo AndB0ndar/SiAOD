@@ -1,0 +1,19 @@
+==46680== Memcheck, a memory error detector
+==46680== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==46680== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==46680== Command: ./main
+==46680== 
+==46680== 
+==46680== HEAP SUMMARY:
+==46680==     in use at exit: 192 bytes in 8 blocks
+==46680==   total heap usage: 10 allocs, 2 frees, 76,992 bytes allocated
+==46680== 
+==46680== LEAK SUMMARY:
+==46680==    definitely lost: 24 bytes in 1 blocks
+==46680==    indirectly lost: 168 bytes in 7 blocks
+==46680==      possibly lost: 0 bytes in 0 blocks
+==46680==    still reachable: 0 bytes in 0 blocks
+==46680==         suppressed: 0 bytes in 0 blocks
+==46680== Rerun with --leak-check=full to see details of leaked memory
+==46680== 
+==46680== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

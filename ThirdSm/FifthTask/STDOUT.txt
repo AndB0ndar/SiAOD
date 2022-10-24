@@ -1,0 +1,38 @@
+a
+max: a
+left
+b
+max: b
+right
+b
+max: z
+left
+left
+q
+max: z
+left
+right
+q
+max: z
+right
+left
+q
+max: z
+right
+right
+q
+max: z
+left
+left
+left
+t
+max: z
+======
+        t
+     q
+  b
+     w
+a
+     w
+  z
+     l
