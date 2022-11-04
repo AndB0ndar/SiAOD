@@ -1,0 +1,5 @@
+min: x ID: g
+min: z ID: c
+min: c ID: b
+min: b ID: a
+a shift = ==r==

@@ -1,0 +1,302 @@
+==14444== Memcheck, a memory error detector
+==14444== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14444== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14444== Command: ./main
+==14444== 
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10965A: Tree::Item::Item(char const*, int) (Tree.cpp:14)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== Invalid read of size 1
+==14444==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x49A9E7C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==14444==    by 0x109FF3: Tree::GetMinLarge(Tree::Item*, char const*) (Tree.cpp:158)
+==14444==    by 0x109EA2: Tree::Split(Tree::Item*, char const*) (Tree.cpp:138)
+==14444==    by 0x1098A4: Tree::Add(char const*, int) (Tree.cpp:44)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== Invalid read of size 1
+==14444==    at 0x484FBE8: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x109AAF: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:82)
+==14444==    by 0x109EC0: Tree::Split(Tree::Item*, char const*) (Tree.cpp:139)
+==14444==    by 0x1098A4: Tree::Add(char const*, int) (Tree.cpp:44)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== Invalid read of size 1
+==14444==    at 0x484FBF0: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x109AAF: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:82)
+==14444==    by 0x109EC0: Tree::Split(Tree::Item*, char const*) (Tree.cpp:139)
+==14444==    by 0x1098A4: Tree::Add(char const*, int) (Tree.cpp:44)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddde21 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444== 
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109401: main (main.cpp:11)
+==14444==  Address 0x4dddf21 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109401: main (main.cpp:11)
+==14444== 
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x10941C: main (main.cpp:12)
+==14444==  Address 0x4dde021 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x10941C: main (main.cpp:12)
+==14444== 
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109437: main (main.cpp:13)
+==14444==  Address 0x4dde121 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109437: main (main.cpp:13)
+==14444== 
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109452: main (main.cpp:14)
+==14444==  Address 0x4dde221 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109452: main (main.cpp:14)
+==14444== 
+==14444== Invalid read of size 1
+==14444==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x49A9E7C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==14444==    by 0x10A0E1: Tree::Show(Tree::Item const*, unsigned int, unsigned int) const (Tree.cpp:178)
+==14444==    by 0x1099E3: Tree::Show() const (Tree.cpp:58)
+==14444==    by 0x10945E: main (main.cpp:15)
+==14444==  Address 0x4dde221 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109452: main (main.cpp:14)
+==14444== 
+==14444== Invalid read of size 8
+==14444==    at 0x109A14: Tree::Zig(Tree::Item*) (Tree.cpp:65)
+==14444==    by 0x109D57: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:119)
+==14444==    by 0x109C8F: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:109)
+==14444==    by 0x1095E7: Tree::Search(char const*) (Tree.h:21)
+==14444==    by 0x109490: main (main.cpp:17)
+==14444==  Address 0x18 is not stack'd, malloc'd or (recently) free'd
+==14444== 
+==14444== 
+==14444== Process terminating with default action of signal 11 (SIGSEGV)
+==14444==  Access not within mapped region at address 0x18
+==14444==    at 0x109A14: Tree::Zig(Tree::Item*) (Tree.cpp:65)
+==14444==    by 0x109D57: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:119)
+==14444==    by 0x109C8F: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:109)
+==14444==    by 0x1095E7: Tree::Search(char const*) (Tree.h:21)
+==14444==    by 0x109490: main (main.cpp:17)
+==14444==  If you believe this happened as a result of a stack
+==14444==  overflow in your program's main thread (unlikely but
+==14444==  possible), you can try to increase the size of the
+==14444==  main thread stack using the --main-stacksize= flag.
+==14444==  The main thread stack size used in this run was 8388608.
+==14444== 
+==14444== HEAP SUMMARY:
+==14444==     in use at exit: 77,078 bytes in 19 blocks
+==14444==   total heap usage: 19 allocs, 0 frees, 77,078 bytes allocated
+==14444== 
+==14444== LEAK SUMMARY:
+==14444==    definitely lost: 80 bytes in 5 blocks
+==14444==    indirectly lost: 0 bytes in 0 blocks
+==14444==      possibly lost: 0 bytes in 0 blocks
+==14444==    still reachable: 76,998 bytes in 14 blocks
+==14444==         suppressed: 0 bytes in 0 blocks
+==14444== Rerun with --leak-check=full to see details of leaked memory
+==14444== 
+==14444== ERROR SUMMARY: 22 errors from 11 contexts (suppressed: 0 from 0)
+==14444== 
+==14444== 1 errors in context 1 of 11:
+==14444== Invalid read of size 8
+==14444==    at 0x109A14: Tree::Zig(Tree::Item*) (Tree.cpp:65)
+==14444==    by 0x109D57: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:119)
+==14444==    by 0x109C8F: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:109)
+==14444==    by 0x1095E7: Tree::Search(char const*) (Tree.h:21)
+==14444==    by 0x109490: main (main.cpp:17)
+==14444==  Address 0x18 is not stack'd, malloc'd or (recently) free'd
+==14444== 
+==14444== 
+==14444== 1 errors in context 2 of 11:
+==14444== Invalid read of size 1
+==14444==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x49A9E7C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==14444==    by 0x10A0E1: Tree::Show(Tree::Item const*, unsigned int, unsigned int) const (Tree.cpp:178)
+==14444==    by 0x1099E3: Tree::Show() const (Tree.cpp:58)
+==14444==    by 0x10945E: main (main.cpp:15)
+==14444==  Address 0x4dde221 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109452: main (main.cpp:14)
+==14444== 
+==14444== 
+==14444== 1 errors in context 3 of 11:
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109452: main (main.cpp:14)
+==14444==  Address 0x4dde221 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109452: main (main.cpp:14)
+==14444== 
+==14444== 
+==14444== 1 errors in context 4 of 11:
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109437: main (main.cpp:13)
+==14444==  Address 0x4dde121 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109437: main (main.cpp:13)
+==14444== 
+==14444== 
+==14444== 1 errors in context 5 of 11:
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x10941C: main (main.cpp:12)
+==14444==  Address 0x4dde021 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x10941C: main (main.cpp:12)
+==14444== 
+==14444== 
+==14444== 1 errors in context 6 of 11:
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109401: main (main.cpp:11)
+==14444==  Address 0x4dddf21 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x109401: main (main.cpp:11)
+==14444== 
+==14444== 
+==14444== 1 errors in context 7 of 11:
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096EA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:23)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddde21 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x1096CA: Tree::Item::Item(char const*, int, Tree::Item*, Tree::Item*) (Tree.cpp:22)
+==14444==    by 0x1098DC: Tree::Add(char const*, int) (Tree.cpp:45)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444== 
+==14444== 
+==14444== 1 errors in context 8 of 11:
+==14444== Invalid write of size 1
+==14444==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10965A: Tree::Item::Item(char const*, int) (Tree.cpp:14)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== 
+==14444== 4 errors in context 9 of 11:
+==14444== Invalid read of size 1
+==14444==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x49A9E7C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==14444==    by 0x109FF3: Tree::GetMinLarge(Tree::Item*, char const*) (Tree.cpp:158)
+==14444==    by 0x109EA2: Tree::Split(Tree::Item*, char const*) (Tree.cpp:138)
+==14444==    by 0x1098A4: Tree::Add(char const*, int) (Tree.cpp:44)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== 
+==14444== 5 errors in context 10 of 11:
+==14444== Invalid read of size 1
+==14444==    at 0x484FBF0: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x109AAF: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:82)
+==14444==    by 0x109EC0: Tree::Split(Tree::Item*, char const*) (Tree.cpp:139)
+==14444==    by 0x1098A4: Tree::Add(char const*, int) (Tree.cpp:44)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== 
+==14444== 5 errors in context 11 of 11:
+==14444== Invalid read of size 1
+==14444==    at 0x484FBE8: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x109AAF: Tree::Splay(Tree::Item*, char const*) (Tree.cpp:82)
+==14444==    by 0x109EC0: Tree::Split(Tree::Item*, char const*) (Tree.cpp:139)
+==14444==    by 0x1098A4: Tree::Add(char const*, int) (Tree.cpp:44)
+==14444==    by 0x1093E6: main (main.cpp:10)
+==14444==  Address 0x4ddcce1 is 0 bytes after a block of size 1 alloc'd
+==14444==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14444==    by 0x10963A: Tree::Item::Item(char const*, int) (Tree.cpp:13)
+==14444==    by 0x10987E: Tree::Add(char const*, int) (Tree.cpp:41)
+==14444==    by 0x1093CB: main (main.cpp:9)
+==14444== 
+==14444== ERROR SUMMARY: 22 errors from 11 contexts (suppressed: 0 from 0)
+Segmentation fault (core dumped)
