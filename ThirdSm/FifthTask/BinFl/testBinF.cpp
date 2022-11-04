@@ -15,28 +15,21 @@ int main()
 
 	vector<const char*> data;
 
-	data.push_back("92523");
+	data.push_back("8");
 	data.push_back("nsbslwn");
 	data.push_back("JANDW");
 	Phone ph(data);
 	binf.Write(ph);
 
 	data.clear();
-	data.push_back("8204");
-	data.push_back("kjahd");
-	data.push_back("SVYASLJ");
-	ph = Phone(data);
-	binf.Write(ph);
-
-	data.clear();
-	data.push_back("?");
+	data.push_back("9");
 	data.push_back("nscslv");
 	data.push_back("IQJSLS");
 	ph = Phone(data);
 	binf.Write(ph);
 
 	data.clear();
-	data.push_back("8204");
+	data.push_back("10");
 	data.push_back("kjahd");
 	data.push_back("SVYASLJ");
 	ph = Phone(data);

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Tree::Item::Item(const char *id, const int shift): 
+Tree::Item::Item(const char *id, int shift): 
 	shift(shift), 
 	left(0), right(0)
 {
@@ -16,7 +16,7 @@ Tree::Item::Item(const char *id, const int shift):
 	this->left = 0;
 	this->right = 0;
 }
-Tree::Item::Item(const char *id, const int shift, Tree::Item *left, Tree::Item *right): 
+Tree::Item::Item(const char *id, int shift, Tree::Item *left, Tree::Item *right): 
 	shift(shift), 
 	left(left), right(right)
 {
@@ -30,7 +30,6 @@ void Tree::Build(const char *binfl)
     Phone ph;
 	in.read(reinterpret_cast<char *>(&ph), sizeof(Phone));
 	for (unsigned i = 0; !in.eof(); i++) {
-		cout << "ID: " << ph.GetId() << " SHIFT: " << i << endl;
 		Add(ph.GetId(), i);
 		in.read(reinterpret_cast<char *>(&ph), sizeof(Phone));
 	}
@@ -47,21 +46,16 @@ void Tree::Add(const char *id, const int shift)
 	this->root = new Item(id, shift, trees[0], trees[1]);
 }
 
+int Tree::Search(const char *id) 
+{ 
+	this->root = Splay(this->root, id);
+	return (StrCmpNum(this->root->id, id) == 0) ? this->root->shift : -1;
+}
+
 void Tree::Remove(const char *id)
 {
 	this->root = Splay(this->root, id);
 	this->root = Merge(this->root->left, this->root->right);
-}
-
-void Tree::Show() const
-{
-	Show(this->root);
-	/*
-	unsigned count = PathLength(this->root);
-	for (unsigned i = 0; i < count; i++) {
-		Show(this->root, i);
-	}
-	*/
 }
 
 Tree::Item* Tree::Zig(Tree::Item *node) // right rotate
@@ -83,14 +77,12 @@ Tree::Item* Tree::Zag(Tree::Item *node)
 Tree::Item* Tree::Splay(Tree::Item *node, const char *id)
 {
 	if (!node)
-		return 0;
-	int cmp = strcmp(node->id, id);
-	if (cmp == 0)
 		return node;
-	else if (cmp > 0) {  // left
-		if (node->left == 0)
-			return 0;
-		cmp = strcmp(node->left->id, id);
+	int cmp = StrCmpNum(node->id, id);
+	if (cmp > 0) {  // left
+		if (!node->left)
+			return node;
+		cmp = StrCmpNum(node->left->id, id);
 		if (cmp > 0) {  // Zig-Zig
 			node->left->left = Splay(node->left->left, id);
 			node = Zig(node);
@@ -101,11 +93,10 @@ Tree::Item* Tree::Splay(Tree::Item *node, const char *id)
 		}
 		if (node->left)
 			node = Zig(node);
-		return node;
-	} else {  // right
-		if (node->right == 0)
-			return 0;
-		cmp = strcmp(node->right->id, id);
+	} else if (cmp < 0) {  // right
+		if (!node->right)
+			return node;
+		cmp = StrCmpNum(node->right->id, id);
 		if (cmp < 0) {  // Zag-Zag
 			node->right->right = Splay(node->right->right, id);
 			node = Zag(node);
@@ -116,16 +107,14 @@ Tree::Item* Tree::Splay(Tree::Item *node, const char *id)
 		}
 		if (node->right)
 			node = Zag(node);
-		return node;
 	}
+	return node;
 }
 
 Tree::Item* Tree::Merge(Tree::Item *t1, Tree::Item *t2)  // t1 < t2
 {
 	Item *max = GetMax(t1);
-	cout << "max: " << max->id << endl;
 	t1 = Splay(t1, max->id);
-	cout << "t1->right: " << t1->right << endl;
 	t1->right = t2;
 	return t1;
 }
@@ -151,14 +140,15 @@ Tree::Item* Tree::GetMinLarge(Tree::Item *node, const char *id)
 	Item *min = 0;
 	int cmp;
 	while (node) {
-		cmp = strcmp(node->id, id);
-		if (cmp == 0) {
-			return min;
+		cmp = StrCmpNum(node->id, id);
+		if (cmp < 0) {
+			node = node->right;
 		} else if (cmp > 0) {
 			min = node;
 			node = node->left;
-		} else if (cmp < 0)
-			node = node->right;
+		} else {
+			return min;
+		}
 	}
 	return min;
 }
@@ -169,20 +159,6 @@ Tree::Item* Tree::GetMax(Tree::Item *node)
 		return node;
 	return GetMax(node->right);
 }
-
-/*
-void Tree::Show(const Tree::Item *node, const unsigned level, unsigned cur_lvl) const
-{
-	if (!node)
-		return;
-	if (level == cur_lvl) {
-		cout  << node->id << " ";
-		return;
-	}
-	Show(node->left, level, cur_lvl+1);
-	Show(node->right, level, cur_lvl+1);
-}
-*/
 
 void Tree::Show(const Tree::Item *node, unsigned shift) const
 {
@@ -195,13 +171,25 @@ void Tree::Show(const Tree::Item *node, unsigned shift) const
 	Show(node->left, shift+1);
 }
 
-unsigned Tree::PathLength(Tree::Item *node, int mxlen) const
+int Tree::StrCmpNum(const char *s1, const char *s2)
 {
-	if (!node)
-		return mxlen;
-	int a = PathLength(node->left, mxlen+1);
-	int b = PathLength(node->right, mxlen+1);
-	return (a < b) ? a : b;
+	unsigned i = 0;
+	while ((s1[i] && s2[i])
+			&& ((s1[i] >= '0' && s1[i] <= '9')
+			|| (s2[i] >= '0' && s2[i] <= '9'))) {
+		if (s1[i] == s2[i]) {
+			i++;
+			continue;
+		} else {
+			return s1[i] - s2[i];
+		}
+	}
+	if (s1[i] >= '0' && s1[i] <= '9')
+		return 1;
+	else if (s2[i] >= '0' && s2[i] <= '9')
+		return -1;
+	else
+		return 0;
 }
 
 void Tree::Clean(Tree::Item *node)

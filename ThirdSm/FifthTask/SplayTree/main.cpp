@@ -10,10 +10,10 @@ int main()
 	tr.Build("bin");
 	tr.Show();
   
-    cout << "shift = " << tr.Search("?") << endl;
-	
+	cout << "shift = " << tr.Search("9\0") << endl;
+	tr.Show();
+	tr.Remove("6\n");
 	tr.Show();
 
-    cout << "shift = " << tr.Search("?") << endl;
 	return 0;
 }
