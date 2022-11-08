@@ -30,10 +30,3 @@ const string Phone::String() const
 	str += this->name;
 	return str;
 }
-
-bool Phone::operator==(const Phone &obj)
-{
-	return !strcmp(id, obj.id)
-		&& !strcmp(address, obj.address)
-		&& !strcmp(name, obj.name);
-}

@@ -1,4 +1,4 @@
-SRCMODULES = 
+SRCMODULES = main.cpp Tree.cpp Phone.cpp
 OBJMODULES = $(SRCMODULES:.cpp=.o)
 CXXFLAGS = -Wall -g
 

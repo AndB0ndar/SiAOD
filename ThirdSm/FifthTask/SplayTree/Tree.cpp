@@ -55,7 +55,9 @@ int Tree::Search(const char *id)
 void Tree::Remove(const char *id)
 {
 	this->root = Splay(this->root, id);
+	Item *garbage = this->root;
 	this->root = Merge(this->root->left, this->root->right);
+	delete garbage;
 }
 
 Tree::Item* Tree::Zig(Tree::Item *node) // right rotate

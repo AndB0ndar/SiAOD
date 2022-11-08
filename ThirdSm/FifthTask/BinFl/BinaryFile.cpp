@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int BinaryFile::Generate(const string textfile)
+int BinaryFile::Generate(string textfile)
 {
 	TextFile tf(textfile);
 	vector<Phone> phones;
@@ -17,24 +17,27 @@ int BinaryFile::Generate(const string textfile)
 	return phones.size();
 }
 
-void BinaryFile::Search(const string textfile, const char *id)
+Phone BinaryFile::Search(const char *id) const
 {
     ifstream in(this->name, ios::binary);
-    ofstream out(textfile, ios::in);
     Phone ph;
 	in.read(reinterpret_cast<char *>(&ph), sizeof(Phone));
 	while (!in.eof()) {
-		if (0 != strcmp(ph.GetId(), id)) {
-			out << ph.String() << endl;
+		if (0 == strcmp(ph.GetId(), id)) {
 			break;
 		}
 		in.read(reinterpret_cast<char *>(&ph), sizeof(Phone));
 	}
+	if (0 != strcmp(ph.GetId(), id)) {
+		ph.SetId("null\0");
+		ph.SetAddr("null\0");
+		ph.SetName("null\0");
+	}
     in.close();
-	out.close();
+	return ph;
 }
 
-Phone BinaryFile::Read(const int shift) const
+Phone BinaryFile::Read(unsigned shift) const
 {
     Phone tmp;
     ifstream in(this->name, ios::binary);

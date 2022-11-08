@@ -6,18 +6,16 @@
 
 using namespace std;
 
-Tree::Item::Item(const char *id, const int shift)
+Tree::Item::Item(const char *id, const int shift): 
+	shift(shift), left(0), right(0)
 {
 	this->id = new char[strlen(id)];
 	strcpy(this->id, id);
-	this->shift = shift;
-	this->left = 0;
-	this->right = 0;
 }
 
-void Tree::Generate(const char *binfl)
+void Tree::Generate(const char *bin_fl)
 {
-    ifstream in(binfl, ios::binary);
+    ifstream in(bin_fl, ios::binary);
     Phone ph;
 	in.read(reinterpret_cast<char *>(&ph), sizeof(Phone));
 	for (unsigned i = 0; !in.eof(); i++) {
@@ -46,54 +44,42 @@ int Tree::Search(const Item *node, const char *id)
 {
 	if (!node)
 		return -1;
-	int cmp = strcmp(node->id, id);
+	int cmp = strcmp(id, node->id);
 	if (0 == cmp)
 		return node->shift;
-	return Search((cmp < 0) ? node->left : node->right, id);
+	return Search((cmp <= 0) ? node->left : node->right, id);
 }
 
 void Tree::Remove(const char *id)
 {
 	Item **node = &this->root;
 	int cmp;
-	while ((cmp = strcmp((*node)->id, id)) != 0) {
-		node = (cmp < 0) ? &((*node)->left) : &((*node)->right);
+	while ((cmp = strcmp(id, (*node)->id)) != 0) {
+		node = (cmp <= 0) ? &((*node)->left) : &((*node)->right);
 	}
-	if (!node)
-		return;
-	else if (((*node)->left == 0 || (*node)->right == 0)
+	if (((*node)->left == 0 || (*node)->right == 0)
 			&& (*node)->left != (*node)->right) {
 		Item *garbage = *node;
-		node = ((*node)->left == 0) ? &((*node)->left) : &((*node)->right); 
+		(*node) = ((*node)->left == 0) ? ((*node)->right) : ((*node)->left); 
 		delete garbage;
-		return;
-	}
-	Item **pmin = GetParentMin(node);
-	// delete string id ??
-	(*node)->id = new char [strlen((*pmin)->id)];
-	strcpy((*node)->id, (*pmin)->id);
-	(*node)->shift = (*pmin)->shift;
-	delete (*pmin);
-}
-
-void Tree::Show() const
-{
-	unsigned count = PathLength(this->root);
-	for (unsigned i = 0; i < count; i++) {
-		Show(this->root, i);
+	} else {
+		Item **pmin = GetParentMin(&((*node)->right));
+		strcpy((*node)->id, (*pmin)->id);
+		(*node)->shift = (*pmin)->shift;
+		delete (*pmin);
+		(*pmin) = 0;
 	}
 }
 
-void Tree::Show(const Tree::Item *node, const unsigned level, unsigned cur_lvl) const
+void Tree::Show(const Tree::Item *node, unsigned level) const
 {
 	if (!node)
 		return;
-	if (level == cur_lvl) {
-		cout  << node->id << " ";
-		return;
-	}
-	Show(node->left, level, cur_lvl+1);
-	Show(node->right, level, cur_lvl+1);
+	Show(node->right, level+1);
+	for (unsigned i = 0; i < level; i++)
+		cout << "  ";
+	cout << node->id << endl;
+	Show(node->left, level+1);
 }
 
 Tree::Item** Tree::GetParentMin(Item **node)
@@ -116,7 +102,7 @@ unsigned Tree::PathLength(Tree::Item *node, int mxlen) const
 		return mxlen;
 	int a = PathLength(node->left, mxlen+1);
 	int b = PathLength(node->right, mxlen+1);
-	return (a < b) ? a : b;
+	return (a > b) ? a : b;
 }
 
 void Tree::Clean(Tree::Item *node)

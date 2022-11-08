@@ -18,6 +18,21 @@ Phone::Phone(const Phone &obj)
 	strncpy(this->name, obj.name, maxstrlen);
 }
 
+void Phone::SetId(const char *id)
+{
+	strncpy(this->id, id, maxstrlen);
+}
+
+void Phone::SetAddr(const char *addr)
+{
+	strncpy(this->address, addr, maxstrlen);
+}
+
+void Phone::SetName(const char *name)
+{
+	strncpy(this->name, name, maxstrlen);
+}
+
 const string Phone::String() const
 {
 	if (!this->id[0])
@@ -29,11 +44,4 @@ const string Phone::String() const
 	str += "; ";
 	str += this->name;
 	return str;
-}
-
-bool Phone::operator==(const Phone &obj)
-{
-	return !strcmp(id, obj.id)
-		&& !strcmp(address, obj.address)
-		&& !strcmp(name, obj.name);
 }
