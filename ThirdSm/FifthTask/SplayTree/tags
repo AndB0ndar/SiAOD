@@ -1,0 +1,52 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/arbon/Programming/SiAOD/ThirdSm/FifthTask/SplayTree/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+Add	Tree.cpp	/^void Tree::Add(const char *id, const int shift)$/;"	f	class:Tree	typeref:typename:void
+Build	Tree.cpp	/^void Tree::Build(const char *binfl)$/;"	f	class:Tree	typeref:typename:void
+Clean	Tree.cpp	/^void Tree::Clean(Tree::Item *node)$/;"	f	class:Tree	typeref:typename:void
+GetAddr	Phone.h	/^	const char* GetAddr() const { return address; }$/;"	f	class:Phone	typeref:typename:const char *
+GetId	Phone.h	/^	const char* GetId() const { return id; }$/;"	f	class:Phone	typeref:typename:const char *
+GetMax	Tree.cpp	/^Tree::Item* Tree::GetMax(Tree::Item *node)$/;"	f	class:Tree	typeref:typename:Tree::Item *
+GetMinLarge	Tree.cpp	/^Tree::Item* Tree::GetMinLarge(Tree::Item *node, const char *id)$/;"	f	class:Tree	typeref:typename:Tree::Item *
+GetName	Phone.h	/^	const char* GetName() const { return name; }$/;"	f	class:Phone	typeref:typename:const char *
+Item	Tree.cpp	/^Tree::Item::Item(const char *id, const int shift): $/;"	f	class:Tree::Item
+Item	Tree.cpp	/^Tree::Item::Item(const char *id, const int shift, Tree::Item *left, Tree::Item *right): $/;"	f	class:Tree::Item
+Item	Tree.h	/^	struct Item {$/;"	s	class:Tree
+Merge	Tree.cpp	/^Tree::Item* Tree::Merge(Tree::Item *t1, Tree::Item *t2)  \/\/ t1 < t2$/;"	f	class:Tree	typeref:typename:Tree::Item *
+PHONE_OWNER_H	Phone.h	/^#define PHONE_OWNER_H$/;"	d
+PathLength	Tree.cpp	/^unsigned Tree::PathLength(Tree::Item *node, int mxlen) const$/;"	f	class:Tree	typeref:typename:unsigned
+Phone	Phone.cpp	/^Phone::Phone(const Phone &obj)$/;"	f	class:Phone
+Phone	Phone.cpp	/^Phone::Phone(vector<const char*> arr)$/;"	f	class:Phone
+Phone	Phone.h	/^    Phone() {}$/;"	f	class:Phone
+Phone	Phone.h	/^class Phone$/;"	c
+Remove	Tree.cpp	/^void Tree::Remove(const char *id)$/;"	f	class:Tree	typeref:typename:void
+Search	Tree.h	/^	int Search(const char *id)$/;"	f	class:Tree	typeref:typename:int
+Show	Tree.cpp	/^void Tree::Show() const$/;"	f	class:Tree	typeref:typename:void
+Show	Tree.cpp	/^void Tree::Show(const Tree::Item *node, unsigned shift) const$/;"	f	class:Tree	typeref:typename:void
+Splay	Tree.cpp	/^Tree::Item* Tree::Splay(Tree::Item *node, const char *id)$/;"	f	class:Tree	typeref:typename:Tree::Item *
+Split	Tree.cpp	/^Tree::Item** Tree::Split(Tree::Item *node, const char *id)$/;"	f	class:Tree	typeref:typename:Tree::Item **
+String	Phone.cpp	/^const string Phone::String() const$/;"	f	class:Phone	typeref:typename:const string
+TREE_H	Tree.h	/^#define TREE_H$/;"	d
+Tree	Tree.h	/^	Tree(): root(0) {}$/;"	f	class:Tree
+Tree	Tree.h	/^class Tree$/;"	c
+Zag	Tree.cpp	/^Tree::Item* Tree::Zag(Tree::Item *node)$/;"	f	class:Tree	typeref:typename:Tree::Item *
+Zig	Tree.cpp	/^Tree::Item* Tree::Zig(Tree::Item *node) \/\/ right rotate$/;"	f	class:Tree	typeref:typename:Tree::Item *
+address	Phone.h	/^	char address[maxstrlen+1];$/;"	m	class:Phone	typeref:typename:char[]
+id	Phone.h	/^	char id[maxstrlen+1];$/;"	m	class:Phone	typeref:typename:char[]
+id	Tree.h	/^		char *id;$/;"	m	struct:Tree::Item	typeref:typename:char *
+left	Tree.h	/^		Item *left;$/;"	m	struct:Tree::Item	typeref:typename:Item *
+main	main.cpp	/^int main()$/;"	f	typeref:typename:int
+maxstrlen	Phone.h	/^	static const unsigned maxstrlen = 20;$/;"	m	class:Phone	typeref:typename:const unsigned
+name	Phone.h	/^	char name[maxstrlen+1];$/;"	m	class:Phone	typeref:typename:char[]
+right	Tree.h	/^		Item *right;$/;"	m	struct:Tree::Item	typeref:typename:Item *
+root	Tree.h	/^	Item *root;$/;"	m	class:Tree	typeref:typename:Item *
+shift	Tree.h	/^		int shift;$/;"	m	struct:Tree::Item	typeref:typename:int
+~Tree	Tree.h	/^	~Tree() { Clean(this->root); }$/;"	f	class:Tree
