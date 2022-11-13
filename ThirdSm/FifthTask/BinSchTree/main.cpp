@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>
+#include "../BinFl/BinaryFile.h"
 #include "Tree.h"
 
 using namespace std;
@@ -6,27 +8,32 @@ using namespace std;
 int main()
 {
 	Tree tr;
-	tr.Add("a", 3);
-	tr.Add("b", 2);
-	tr.Add("w", 2);
-	tr.Add("q", 4);
+	tr.Generate("bin");
+	BinaryFile binf("bin");
+    unsigned int start_time =  clock();
+	cout << "find shift: " << tr.Search("+++") << endl;
+    unsigned int end_time = clock();
+    cout << "work time: " << (end_time - start_time)/1000.0 << " s" << endl;
+
+    start_time =  clock();
+	cout << "find shift: " << tr.Search("---") << endl;
+    end_time = clock();
+    cout << "work time: " << (end_time - start_time)/1000.0 << " s" << endl;
+
+    start_time =  clock();
+	cout << "find shift: " << tr.Search("===") << endl;
+    end_time = clock();
+    cout << "work time: " << (end_time - start_time)/1000.0 << " s" << endl;
+
+	/*
+	cout << "======" << endl;
+	tr.Remove("**");
 	tr.Show();
-	//cout << "Left node: " << tr.GetLeftItem()->data << endl;
-	//ncout << "max: " << tr.FindMaxChar() << endl;
-	cout << "distance to 'w': " << tr.Search("w") << endl;
-	tr.Add("w", 6);
-	tr.Add("l", 0);
-	tr.Add("f", 4);
-	tr.Add("w", 1);
-	tr.Show();
-	//cout << "Left node: " << tr.GetLeftItem()->data << endl;
-	//ncout << "max: " << tr.FindMaxChar() << endl;
-	cout << "distance to 'l': " << tr.Search("b") << endl;
-	tr.Remove("a");
 
 	//cout << "======" << endl;
 	//cout << tr.GetDistanse('w') << endl;
 	//cout << "======" << endl;
 	tr.Show();
+	*/
 	return 0;
 }

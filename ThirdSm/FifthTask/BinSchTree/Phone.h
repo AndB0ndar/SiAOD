@@ -18,7 +18,9 @@ public:
 	const char* GetAddr() const { return address; }
 	const char* GetName() const { return name; }
 	const std::string String() const;
-	bool operator==(const Phone &obj);
+	void SetId(const char *id);
+	void SetAddr(const char *addr);
+	void SetName(const char *name);
 };
 
 #endif

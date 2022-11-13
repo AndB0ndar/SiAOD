@@ -54,10 +54,12 @@ void Tree::Remove(const char *id)
 {
 	Item **node = &this->root;
 	int cmp;
-	while ((cmp = strcmp(id, (*node)->id)) != 0) {
+	while ((*node) && (cmp = strcmp(id, (*node)->id)) != 0) {
 		node = (cmp <= 0) ? &((*node)->left) : &((*node)->right);
 	}
-	if (((*node)->left == 0 || (*node)->right == 0)
+	if (!(*node)) {
+		return;
+	} else if (((*node)->left == 0 || (*node)->right == 0)
 			&& (*node)->left != (*node)->right) {
 		Item *garbage = *node;
 		(*node) = ((*node)->left == 0) ? ((*node)->right) : ((*node)->left); 

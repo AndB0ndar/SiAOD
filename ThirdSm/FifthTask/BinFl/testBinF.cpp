@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
 #include "BinaryFile.h"
 
 using namespace std;
@@ -11,37 +12,21 @@ int main()
 	string binfile = "bin";
 	BinaryFile binf(binfile);
 	binf.Generate(txtfile);
-	binf.Output();
 
-	vector<const char*> data;
+    unsigned int start_time =  clock();
+	cout << "find: " << binf.Search("+++").String() << endl;
+    unsigned int end_time = clock();
+    cout << "work time: " << (end_time - start_time)/1000.0 << " s" << endl;
 
-	data.push_back("8");
-	data.push_back("nsbslwn");
-	data.push_back("JANDW");
-	Phone ph(data);
-	binf.Write(ph);
+    start_time =  clock();
+	cout << "find: " << binf.Search("---").String() << endl;
+    end_time = clock();
+    cout << "work time: " << (end_time - start_time)/1000.0 << " s" << endl;
 
-	data.clear();
-	data.push_back("9");
-	data.push_back("nscslv");
-	data.push_back("IQJSLS");
-	ph = Phone(data);
-	binf.Write(ph);
+    start_time =  clock();
+	cout << "find: " << binf.Search("===").String() << endl;
+    end_time = clock();
+    cout << "work time: " << (end_time - start_time)/1000.0 << " s" << endl;
 
-	data.clear();
-	data.push_back("10");
-	data.push_back("kjahd");
-	data.push_back("SVYASLJ");
-	ph = Phone(data);
-	binf.Write(ph);
-	cout << "=======" << endl;
-	binf.Output();
-	cout << "=======" << endl;
-	
-	int line;
-	cout << "Entre number: ";
-	cin >> line;
-	cout << "=======" << endl;
-	cout << binf.Read(line).String() << endl;
 	return 0;
 }
