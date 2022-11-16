@@ -90,7 +90,7 @@ void Graph::ShowSpanningTree()
 
 int** Graph::AlgPrima()
 {
-	int **spanning_tree = CreateMtx(this->count_nodes);
+	int **span_tree = CreateMtx(this->count_nodes);
 	int edges = 0;
 	bool selected[this->count_nodes];
 	for (int i = 1; i < this->count_nodes; i++)

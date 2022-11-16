@@ -17,7 +17,10 @@ int main()
 2 4 1
 	 */
 	gph.Show();
+	/*
+	cout << "Euler cycle:" << endl;
 	gph.ShowEulerCycle();
+	 */
 	gph.ShowSpanningTree();
 	return 0;
 }

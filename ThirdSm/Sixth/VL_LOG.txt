@@ -1,99 +1,13 @@
-==34023== Memcheck, a memory error detector
-==34023== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==34023== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==34023== Command: ./main
-==34023== 
-==34023== Invalid write of size 4
-==34023==    at 0x109AD1: Graph::AlgPrima() (AdjacencyMatrix.cpp:99)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023==  Address 0x4dde7c4 is 0 bytes after a block of size 20 alloc'd
-==34023==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34023==    by 0x109A9C: Graph::AlgPrima() (AdjacencyMatrix.cpp:97)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023== 
-==34023== Invalid write of size 8
-==34023==    at 0x109A9D: Graph::AlgPrima() (AdjacencyMatrix.cpp:97)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023==  Address 0x4dde768 is 0 bytes after a block of size 40 alloc'd
-==34023==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34023==    by 0x109A4D: Graph::AlgPrima() (AdjacencyMatrix.cpp:95)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023== 
-==34023== Invalid read of size 8
-==34023==    at 0x109AC2: Graph::AlgPrima() (AdjacencyMatrix.cpp:99)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023==  Address 0x4dde768 is 0 bytes after a block of size 40 alloc'd
-==34023==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34023==    by 0x109A4D: Graph::AlgPrima() (AdjacencyMatrix.cpp:95)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023== 
-==34023== Conditional jump or move depends on uninitialised value(s)
-==34023==    at 0x10A2C4: Graph::Clear() (AdjacencyMatrix.cpp:209)
-==34023==    by 0x1094DD: Graph::~Graph() (AdjacencyMatrix.cpp:19)
-==34023==    by 0x109311: main (main.cpp:23)
-==34023== 
-==34023== 
-==34023== HEAP SUMMARY:
-==34023==     in use at exit: 220 bytes in 10 blocks
-==34023==   total heap usage: 28 allocs, 18 frees, 78,588 bytes allocated
-==34023== 
-==34023== LEAK SUMMARY:
-==34023==    definitely lost: 120 bytes in 5 blocks
-==34023==    indirectly lost: 100 bytes in 5 blocks
-==34023==      possibly lost: 0 bytes in 0 blocks
-==34023==    still reachable: 0 bytes in 0 blocks
-==34023==         suppressed: 0 bytes in 0 blocks
-==34023== Rerun with --leak-check=full to see details of leaked memory
-==34023== 
-==34023== Use --track-origins=yes to see where uninitialised values come from
-==34023== ERROR SUMMARY: 54 errors from 4 contexts (suppressed: 0 from 0)
-==34023== 
-==34023== 3 errors in context 1 of 4:
-==34023== Conditional jump or move depends on uninitialised value(s)
-==34023==    at 0x10A2C4: Graph::Clear() (AdjacencyMatrix.cpp:209)
-==34023==    by 0x1094DD: Graph::~Graph() (AdjacencyMatrix.cpp:19)
-==34023==    by 0x109311: main (main.cpp:23)
-==34023== 
-==34023== 
-==34023== 3 errors in context 2 of 4:
-==34023== Invalid write of size 8
-==34023==    at 0x109A9D: Graph::AlgPrima() (AdjacencyMatrix.cpp:97)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023==  Address 0x4dde768 is 0 bytes after a block of size 40 alloc'd
-==34023==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34023==    by 0x109A4D: Graph::AlgPrima() (AdjacencyMatrix.cpp:95)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023== 
-==34023== 
-==34023== 24 errors in context 3 of 4:
-==34023== Invalid write of size 4
-==34023==    at 0x109AD1: Graph::AlgPrima() (AdjacencyMatrix.cpp:99)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023==  Address 0x4dde7c4 is 0 bytes after a block of size 20 alloc'd
-==34023==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34023==    by 0x109A9C: Graph::AlgPrima() (AdjacencyMatrix.cpp:97)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023== 
-==34023== 
-==34023== 24 errors in context 4 of 4:
-==34023== Invalid read of size 8
-==34023==    at 0x109AC2: Graph::AlgPrima() (AdjacencyMatrix.cpp:99)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023==  Address 0x4dde768 is 0 bytes after a block of size 40 alloc'd
-==34023==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==34023==    by 0x109A4D: Graph::AlgPrima() (AdjacencyMatrix.cpp:95)
-==34023==    by 0x1098BD: Graph::ShowSpanningTree() (AdjacencyMatrix.cpp:83)
-==34023==    by 0x109300: main (main.cpp:21)
-==34023== 
-==34023== ERROR SUMMARY: 54 errors from 4 contexts (suppressed: 0 from 0)
+==8010== Memcheck, a memory error detector
+==8010== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8010== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==8010== Command: ./main
+==8010== 
+==8010== 
+==8010== HEAP SUMMARY:
+==8010==     in use at exit: 0 bytes in 0 blocks
+==8010==   total heap usage: 20 allocs, 20 frees, 81,468 bytes allocated
+==8010== 
+==8010== All heap blocks were freed -- no leaks are possible
+==8010== 
+==8010== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

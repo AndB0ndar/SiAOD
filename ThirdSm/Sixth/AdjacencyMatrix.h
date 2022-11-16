@@ -19,7 +19,7 @@ private:
 	int* DegreesVertices();
 	int ExistEulerCycle();
 	void ShowEulerCycle(int edge);
-	int** AlgPrima()
+	int** AlgPrima();
 	int** CreateMtx(int size);
 	void Increase(int max);
 	int** Extract();
