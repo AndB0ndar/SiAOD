@@ -5,13 +5,7 @@ using namespace std;
 
 Graph::Graph(): size(8), count_nodes(0)
 {
-	this->matrix = new int*[this->size];
-	for (int i = 0; i < this->size; i++) {
-		this->matrix[i] = new int[this->size];
-		for (int j = 0; j < this->size; j++) {
-			this->matrix[i][j] = 0;
-		}
-	}
+	this->matrix = CreateMtx(this->size);
 }
 
 Graph::~Graph()
@@ -33,14 +27,16 @@ int Graph::Completion()
 
 int Graph::AddEdge(int vector, int edge, int weight)
 {
-	if ((vector < 0) || (edge < 0) || (vector == edge)) {
+	int m = (vector < edge) ? vector : edge; // min
+	if ((m < 0) || (vector == edge))
 		return -1;
-	} else if ((vector >= this->count_nodes) || (edge >= this->count_nodes)) {
-		int max = (vector > edge) ? vector : edge;
-		if (max > this->size)
-			Increase(max);
+	m = (vector > edge) ? vector : edge;  // max
+	if ((m >= this->count_nodes)) {
+		int m = (vector > edge) ? vector : edge;
+		if (m > this->size)
+			Increase(m);
 		else
-			this->count_nodes = max+1;
+			this->count_nodes = m+1;
 	}
 	this->matrix[vector][edge] = weight;
 	this->matrix[edge][vector] = weight;
@@ -65,6 +61,7 @@ void Graph::Show()
 	  cout << "\n";
   }
 }
+
 void Graph::ShowEulerCycle()
 {
 	if (!ExistEulerCycle()) {
@@ -93,23 +90,18 @@ void Graph::ShowSpanningTree()
 
 int** Graph::AlgPrima()
 {
-	int **spanning_tree = new int*[this->count_nodes];
-	for (int i = 0; i < this->count_nodes; i++) {
-		spanning_tree[i] = new int[this->count_nodes];
-		for (int j = 0; j < this->count_nodes; j++) {
-			spanning_tree[i][j] = 0;
-		}
-	}
+	int **spanning_tree = CreateMtx(this->count_nodes);
 	int edges = 0;
 	bool selected[this->count_nodes];
 	for (int i = 1; i < this->count_nodes; i++)
 		selected[i] = false;
 	selected[0] = true;
 
+	int min;
 	int x, y;
 
 	while (edges < this->count_nodes - 1) {
-		int min = 9999999;
+		min = 9999999;
 		x = 0;
 		y = 0;
 
@@ -126,12 +118,12 @@ int** Graph::AlgPrima()
 				}
 			}
 		}
-		spanning_tree[x][y] = this->matrix[x][y];
-		spanning_tree[y][x] = this->matrix[x][y];
+		span_tree[x][y] = this->matrix[x][y];
+		span_tree[y][x] = this->matrix[x][y];
 		selected[y] = true;
 		edges++;
 	}
-	return spanning_tree;
+	return span_tree;
 }
 
 void Graph::Increase(int max)
@@ -157,18 +149,6 @@ void Graph::Increase(int max)
 	delete [] tmp_mtx;
 }
 
-int **Graph::Extract()
-{
-	int **nw_mtx = new int*[this->size];
-	for (int i = 0; i < this->count_nodes; i++) {
-		nw_mtx[i] = new int[this->size];
-		for (int j = 0; j < this->size; j++) {
-			nw_mtx[i][j] = this->matrix[i][j];
-		}
-	}
-	return nw_mtx;
-}
-
 int *Graph::DegreesVertices()
 {
 	int *degrees = new int[this->count_nodes];
@@ -184,13 +164,16 @@ int *Graph::DegreesVertices()
 
 void Graph::ShowEulerCycle(int edge)
 {
-	for (int i = 0; i < this->count_nodes; i++) {
-		if (this->matrix[edge][i]) {
-			RemoveEdge(edge, i);
-			ShowEulerCycle(i);
-			break;
+	int i = 0;
+	while (!this->matrix[edge][i]) {
+		i++;
+		if (i >= this->count_nodes) {
+			cout << edge << " ";
+			return;
 		}
 	}
+	RemoveEdge(edge, i);
+	ShowEulerCycle(i);
 	cout << edge << " ";
 }
 
@@ -202,6 +185,30 @@ int Graph::ExistEulerCycle()
 			return false;
 	}
 	return true;
+}
+
+int** Graph::CreateMtx(int size)
+{
+	int **matrix = new int*[size];
+	for (int i = 0; i < size; i++) {
+		matrix[i] = new int[size];
+		for (int j = 0; j < size; j++) {
+			matrix[i][j] = 0;
+		}
+	}
+	return matrix;
+}
+
+int **Graph::Extract()
+{
+	int **nw_mtx = new int*[this->size];
+	for (int i = 0; i < this->count_nodes; i++) {
+		nw_mtx[i] = new int[this->size];
+		for (int j = 0; j < this->size; j++) {
+			nw_mtx[i][j] = this->matrix[i][j];
+		}
+	}
+	return nw_mtx;
 }
 
 void Graph::Clear(int **mtx, int size)

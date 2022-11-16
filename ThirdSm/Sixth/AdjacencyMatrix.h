@@ -15,13 +15,14 @@ public:
 	void Show();
 	void ShowEulerCycle();
 	void ShowSpanningTree();
-	int** AlgPrima();
 private:
+	int* DegreesVertices();
+	int ExistEulerCycle();
+	void ShowEulerCycle(int edge);
+	int** AlgPrima()
+	int** CreateMtx(int size);
 	void Increase(int max);
 	int** Extract();
-	int *DegreesVertices();
-	void ShowEulerCycle(int edge);
-	int ExistEulerCycle();
 	static void Clear(int **mtx, int size);
 };
 
