@@ -1,15 +1,13 @@
-#ifndef LZ77_H
-#define LZ77_H
+#ifndef LZ78_H
+#define LZ78_H
 
 #include <string>
 
-class LZ77
+class LZ78
 {
 public:
-	void Encode(const std::string& input, std::string& output);
-	void Decode(const std::string& input, std::string& output);
-private:
-	void FindLongestMatch(const std::string& input, int& offset, int& length);
+	std::string Encode(const std::string& input);
+	std::string Decode(const std::string& input);
 };
 
 #endif

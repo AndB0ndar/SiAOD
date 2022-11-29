@@ -3,6 +3,7 @@
 
 #include "RLE.h"
 #include "LZ77.h"
+#include "LZ78.h"
 
 class Test
 {
@@ -18,6 +19,11 @@ public:
 	void testLZ77(const std::string& input, const std::string& output);
 	// call test LZ77
 	void callTestLZ77();
+
+	// test LZ78
+	void testLZ78(const std::string& input, const std::string& output);
+	// call test LZ78
+	void callTestLZ78();
 };
 
 #endif
