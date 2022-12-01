@@ -72,8 +72,8 @@ vector<Huffman::Note*> Huffman::GetCodes(Note *tree)
 string Huffman::Encode(const string& input)
 {
 	vector<Note*> alph = GetAlph(input);
-	Note *tree = GetTree(alph);
-	vector<Note*> codes = GetCodes(tree);
+	this->tree = GetTree(alph);
+	vector<Note*> codes = GetCodes(this->tree);
 
 	string res = "";
 	for (size_t i = 0; i < input.length(); i++) {
@@ -87,6 +87,23 @@ string Huffman::Encode(const string& input)
 		}
 	}
 	return res;
+}
+
+// go through the tree and find the code for each character
+void Huffman::ShowTree()
+{
+	ShowTree(this->tree, 0);
+}
+
+void Huffman::ShowTree(Note *tree, int level)
+{
+	if (!tree)
+		return;
+	ShowTree(tree->right, level+1);
+	for (int i = 0; i < level; i++)
+		cout << '\t';
+	cout << tree->alph << " " << tree->weight << endl;
+	ShowTree(tree->left, level+1);
 }
 
 string Huffman::Decode(const string& input)

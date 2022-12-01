@@ -62,6 +62,7 @@ void Test::testHuffman(const string& input)
 {
 	Huffman huffman;
 	string result = huffman.Encode(input.c_str());
+	huffman.ShowTree();
 	cout << "Input: " << input << endl;
 	cout << "Encode: " << result << endl;
 }

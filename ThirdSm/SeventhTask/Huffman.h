@@ -24,12 +24,15 @@ public:
 	~Huffman() = default;
 	std::string Encode(const std::string& input);
 	std::string Decode(const std::string& input);
+	void ShowTree();
 private:
+	Note *tree;
 	std::vector<Note*> GetAlph(const std::string& input);
 	Note* GetTree(std::vector<Note*>& alph);
 	std::vector<Note*> GetCodes(Note *tree);
 	void TreeTraversal(Note *tree, std::vector<Note*> &res, std::string code="0");
 	void Sort(std::vector<Note*>& prob);
+	void ShowTree(Note *tree, int level);
 };
 
 #endif
