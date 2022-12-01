@@ -5,6 +5,7 @@
 #include "LZ77.h"
 #include "LZ78.h"
 #include "ShanFan.h"
+#include "Huffman.h"
 
 class Test
 {
@@ -30,6 +31,11 @@ public:
 	void testShanFan(const std::string& input);
 	// call test ShanFan
 	void callTestShanFan();
+
+	// test Huffman
+	void testHuffman(const std::string& input);
+	// call test Huffman
+	void callTestHuffman();
 };
 
 #endif

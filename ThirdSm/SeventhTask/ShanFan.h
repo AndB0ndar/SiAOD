@@ -16,8 +16,8 @@ public:
 	std::string Encode(const std::string& input);
 	std::string Decode(const std::string& input);
 private:
-	std::vector<Code> DetProb(const std::string& input);
-	std::vector<Code> DetCode(std::vector<Code>& prob);
+	std::vector<Code> GetProb(const std::string& input);
+	std::vector<Code> GetCodes(std::vector<Code>& prob);
 	void Sort(std::vector<Code>& prob);
 	std::string toBinary(double num, int precision = 16);
 };

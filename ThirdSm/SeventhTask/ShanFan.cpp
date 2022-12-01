@@ -36,7 +36,7 @@ string ShanFan::toBinary(double num, int precision)
 	return result;
 }
 
-vector<ShanFan::Code> ShanFan::DetProb(const string& input)
+vector<ShanFan::Code> ShanFan::GetProb(const string& input)
 {
 	vector<Code> res;
 	map<char, double> prob;
@@ -55,7 +55,7 @@ vector<ShanFan::Code> ShanFan::DetProb(const string& input)
 	return res;
 }
 
-vector<ShanFan::Code> ShanFan::DetCode(vector<Code>& prob)
+vector<ShanFan::Code> ShanFan::GetCodes(vector<Code>& prob)
 {
 	int length = ceil(-log2(prob[0].prob));
 	prob[0].code = "";
@@ -76,8 +76,8 @@ vector<ShanFan::Code> ShanFan::DetCode(vector<Code>& prob)
 
 string ShanFan::Encode(const string& input)
 {
-	vector<Code> prob = DetProb(input);
-	vector<Code> code = DetCode(prob);
+	vector<Code> prob = GetProb(input);
+	vector<Code> code = GetCodes(prob);
 
 	string output = "";
 	for (size_t i = 0; i < input.length(); i++) {

@@ -1,4 +1,4 @@
-SRCMODULES = Test.cpp LZ77.cpp RLE.cpp LZ78.cpp ShanFan.cpp
+SRCMODULES = Test.cpp LZ77.cpp RLE.cpp LZ78.cpp ShanFan.cpp Huffman.cpp
 OBJMODULES = $(SRCMODULES:.cpp=.o)
 CXXFLAGS = -Wall -g
 
