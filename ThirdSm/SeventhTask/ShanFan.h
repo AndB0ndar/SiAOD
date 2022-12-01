@@ -8,18 +8,38 @@ class ShanFan
 {
 public:
 	struct Code {
-		char ch;
-		double prob;
+		std::string alph;
+		int weight;
 		std::string code;
-		Code(char c, double p, std::string s) : ch(c), prob(p), code(s) {}
+		Code *left;
+		Code *right;
+		Code() = default;
+		Code(std::string c, int p):
+			alph(c), weight(p), left(0), right(0) {}
+		Code(std::string c, std::string s):
+			alph(c), code(s), left(0), right(0) {}
+		Code(std::string c, int p, Code *left, Code *right): 
+			alph(c), weight(p), left(left), right(right) {}
 	};
 	std::string Encode(const std::string& input);
 	std::string Decode(const std::string& input);
+	void ShowTree() { ShowTree(this->tree, 0); }
 private:
-	std::vector<Code> GetProb(const std::string& input);
-	std::vector<Code> GetCodes(std::vector<Code>& prob);
-	void Sort(std::vector<Code>& prob);
-	std::string toBinary(double num, int precision = 16);
+	Code *tree;
+	std::vector<Code*> GetAlph(const std::string& input);
+	Code* GetTree(std::vector<Code*>& alph);
+	std::vector<Code*> GetCodes(Code *tree);
+	void Balance(std::vector<Code*> alph
+			, std::vector<Code*> &lef
+			, std::vector<Code*> &right
+			);
+	int Weight(std::vector<Code*> &vec);
+	void Sort(std::vector<Code*> &vec);
+
+	void TreeTraversal(Code *tree
+			, std::vector<Code*> &res
+			, std::string code="");
+	void ShowTree(Code *tree, int level);
 };
 
 #endif

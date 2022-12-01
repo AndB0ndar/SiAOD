@@ -1,6 +1,7 @@
 #ifndef TEST_H
 #define TEST_H
 
+#include <string>
 #include "RLE.h"
 #include "LZ77.h"
 #include "LZ78.h"
@@ -9,6 +10,10 @@
 
 class Test
 {
+	const std::string inputLZ77 = "0100101010010000101";
+	const std::string inputLZ78 = "лорлоралоранранлоран";
+	const std::string inputShanFan = "Эне-бене, рики-таки, Буль-буль-буль, Караки-шмаки Эус-деус-краснодеус бац";
+	const std::string inputHuffman = "Bondar Andrey Renatovich";
 public:
 	Test() = default;
 	~Test() = default;

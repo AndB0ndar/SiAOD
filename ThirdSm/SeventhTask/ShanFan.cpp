@@ -1,45 +1,26 @@
 #include <iostream>
-#include <cmath>
-#include <bitset>
+#include <vector>
 #include <map>
 #include "ShanFan.h"
 
 using namespace std;
 
-void ShanFan::Sort(vector<Code>& prob)
+void ShanFan::Sort(vector<Code*> &vec)
 {
-	for (size_t i = 0; i < prob.size(); i++) {
-		for (size_t j = i + 1; j < prob.size(); j++) {
-			if (prob[i].prob < prob[j].prob) {
-				Code temp = prob[i];
-				prob[i] = prob[j];
-				prob[j] = temp;
+	for (size_t i = 0; i < vec.size(); i++) {
+		for (size_t j = i + 1; j < vec.size(); j++) {
+			if (vec[i]->weight < vec[j]->weight) {
+				Code *temp = vec[i];
+				vec[i] = vec[j];
+				vec[j] = temp;
 			}
 		}
 	}
 }
 
-// convert a double number to binary string
-string ShanFan::toBinary(double num, int precision)
+vector<ShanFan::Code*> ShanFan::GetAlph(const string &input)
 {
-	string result = "0.";
-	while (num > 0 && precision > 0) {
-		num *= 2;
-		if (num >= 1) {
-			result += "1";
-			num -= 1;
-		} else {
-			result += "0";
-		}
-		precision--;
-	}
-	return result;
-}
-
-vector<ShanFan::Code> ShanFan::GetProb(const string& input)
-{
-	vector<Code> res;
-	map<char, double> prob;
+	map<char, int> prob;
 	for (size_t i = 0; i < input.length(); i++) {
 		if (prob.find(input[i]) == prob.end()) {
 			prob[input[i]] = 1;
@@ -47,53 +28,122 @@ vector<ShanFan::Code> ShanFan::GetProb(const string& input)
 			prob[input[i]]++;
 		}
 	}
-	map<char, double>::iterator it;
+	vector<Code*> alph;
+	map<char, int>::iterator it;
 	for (it = prob.begin(); it != prob.end(); it++) {
-		res.push_back(Code(it->first, it->second / input.length(), ""));
+		string s = "";
+		s += it->first;
+		alph.push_back(new Code(s, it->second));
 	}
-	Sort(res);
-	return res;
+	return alph;
 }
 
-vector<ShanFan::Code> ShanFan::GetCodes(vector<Code>& prob)
+void ShanFan::Balance(vector<Code*> alph
+		, vector<Code*> &lef
+		, vector<Code*> &right)
 {
-	int length = ceil(-log2(prob[0].prob));
-	prob[0].code = "";
-	for (auto i = 0; i < length; i++)
-		prob[0].code += "0";
+	Sort(alph);
+    for(Code* r : alph) {
+        if (Weight(lef) < Weight(right)) {
+            lef.push_back(r);
+        } else {
+            right.push_back(r);
+        }
+    }
+}
 
-	for (size_t i = 1; i < prob.size(); i++) {
-		double sum = 0;
-		for (size_t j = 0; j < i; j++) {
-			sum += prob[j].prob;
-		}
-		length = ceil(-log2(prob[i].prob));
-		prob[i].code = toBinary(sum).substr(2, length);
+int ShanFan::Weight(vector<Code*> &vec)
+{
+	int weight = 0;
+	for (Code* r : vec) {
+		weight += r->weight;
 	}
+	return weight;
+}
 
-	return prob;
+ShanFan::Code* ShanFan::GetTree(vector<Code*>& alph)
+{
+	Code* root = new Code();
+	if (alph.size() == 1) {
+		root->alph = alph[0]->alph;
+		root->weight = alph[0]->weight;
+		return root;
+	} 
+	for (Code* r : alph) {
+		root->code += r->alph;
+		root->weight = r->weight;
+	}
+	vector<Code*> left, right;
+	Balance(alph, left, right);
+	root->left = GetTree(left);
+	root->right = GetTree(right);
+	return root;
+}
+
+void ShanFan::TreeTraversal(Code *tree, vector<Code*> &res, string code)
+{
+	if (!tree)
+		return;
+	if (tree->alph.size() == 1) {
+		res.push_back(new Code(tree->alph, code));
+		tree->code = code;
+	}
+	TreeTraversal(tree->left, res, code+'0');
+	TreeTraversal(tree->right, res, code+'1');
+}
+
+vector<ShanFan::Code*> ShanFan::GetCodes(Code *tree)
+{
+	vector<Code*> res;
+	TreeTraversal(tree, res);
+	return res;
 }
 
 string ShanFan::Encode(const string& input)
 {
-	vector<Code> prob = GetProb(input);
-	vector<Code> code = GetCodes(prob);
+	vector<Code*> alph = GetAlph(input);
+	this->tree = GetTree(alph);
+	vector<Code*> codes = GetCodes(this->tree);
 
-	string output = "";
+	string res = "";
 	for (size_t i = 0; i < input.length(); i++) {
-		for (size_t j = 0; j < code.size(); j++) {
-			if (input[i] == code[j].ch) {
-				output += code[j].code;
+		for (size_t j = 0; j < codes.size(); j++) {
+			string s = "";
+			s += input[i];
+			if (codes[j]->alph.compare(s) == 0) {
+				res += codes[j]->code;
 				break;
 			}
 		}
 	}
-	return output;
+	return res;
 }
 
 string ShanFan::Decode(const string& input)
 {
-	string output = "";
+	string res = "";
+	Code* temp = this->tree;
+	for (size_t i = 0; i < input.length(); i++) {
+		if (input[i] == '0') {
+			temp = temp->left;
+		} else {
+			temp = temp->right;
+		}
+		if (temp->alph.size() == 1) {
+			res += temp->alph;
+			temp = this->tree;
+		}
+	}
+	return res;
+}
 
-	return output;
+void ShanFan::ShowTree(Code *tree, int level)
+{
+	if (!tree)
+		return;
+	ShowTree(tree->right, level+1);
+	for (int i = 0; i < level; i++)
+		cout << '\t';
+	cout << tree->alph << " " << tree->code << endl;
+	ShowTree(tree->left, level+1);
 }

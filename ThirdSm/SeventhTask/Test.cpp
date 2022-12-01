@@ -49,13 +49,16 @@ void Test::testShanFan(const string& input)
 {
 	ShanFan shanFan;
 	string result = shanFan.Encode(input.c_str());
+	shanFan.ShowTree();
 	cout << "Input: " << input << endl;
 	cout << "Encode: " << result << endl;
+	result = shanFan.Decode(result);
+	cout << "Decode: " << result << endl;
 }
 
 void Test::callTestShanFan()
 {
-	testShanFan("aaaabbbcc");
+	testShanFan(inputShanFan);
 }
 
 void Test::testHuffman(const string& input)
@@ -69,7 +72,7 @@ void Test::testHuffman(const string& input)
 
 void Test::callTestHuffman()
 {
-	testHuffman("aaaabbbcc");
+	testHuffman(inputHuffman);
 }
 int main()
 {
@@ -80,8 +83,8 @@ int main()
 	//test.callTestLZ77();
 	//cout << "LZ78 encoding test" << endl;
 	//test.callTestLZ78();
-	//cout << "ShanFan encoding test" << endl;
-	//test.callTestShanFan();
+	cout << "ShanFan encoding test" << endl;
+	test.callTestShanFan();
 	cout << "Huffman encoding test" << endl;
 	test.callTestHuffman();
 	

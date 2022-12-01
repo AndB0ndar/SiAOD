@@ -56,8 +56,10 @@ void Huffman::TreeTraversal(Note *tree, vector<Note*> &res, string code)
 {
 	if (!tree)
 		return;
-	if (tree->alph.size() == 1)
+	if (tree->alph.size() == 1) {
 		res.push_back(new Note(tree->alph, code));
+		tree->code = code;
+	}
 	TreeTraversal(tree->left, res, code+'0');
 	TreeTraversal(tree->right, res, code+'1');
 }
@@ -89,12 +91,6 @@ string Huffman::Encode(const string& input)
 	return res;
 }
 
-// go through the tree and find the code for each character
-void Huffman::ShowTree()
-{
-	ShowTree(this->tree, 0);
-}
-
 void Huffman::ShowTree(Note *tree, int level)
 {
 	if (!tree)
@@ -102,11 +98,24 @@ void Huffman::ShowTree(Note *tree, int level)
 	ShowTree(tree->right, level+1);
 	for (int i = 0; i < level; i++)
 		cout << '\t';
-	cout << tree->alph << " " << tree->weight << endl;
+	cout << tree->alph << " " << tree->code << endl;
 	ShowTree(tree->left, level+1);
 }
 
 string Huffman::Decode(const string& input)
 {
-	return input;
+	string res = "";
+	Note *temp = this->tree;
+	for (size_t i = 0; i < input.length(); i++) {
+		if (input[i] == '0') {
+			temp = temp->left;
+		} else {
+			temp = temp->right;
+		}
+		if (temp->alph.size() == 1) {
+			res += temp->alph;
+			temp = this->tree;
+		}
+	}
+	return res;
 }
