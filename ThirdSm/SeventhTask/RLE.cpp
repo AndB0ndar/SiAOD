@@ -14,14 +14,17 @@ const char* RLE::Encode(const char* input)
 		if (input[i] == input[i + 1]) {
 			count++;
 		} else {
-			output[j] = count + '0';
-			j++;
+			string num = to_string(count);
+			for (size_t k = 0; k < num.length(); k++, j++) {
+				output[j] = num[k];
+			}
 			output[j] = input[i];
 			j++;
 			count = 1;
 		}
 	}
 	output[j] = '\0';
+	compressRatio = length / (double)strlen(output);
 	return output;
 }
 

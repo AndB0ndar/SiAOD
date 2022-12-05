@@ -1,9 +1,18 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <map>
 #include "Huffman.h"
 
 using namespace std;
+
+Huffman::Note::~Note()
+{
+	if (left)
+		delete left;
+	if (right)
+		delete right;
+}
 
 void Huffman::Sort(vector<Note*>& prob)
 {
@@ -33,7 +42,7 @@ vector<Huffman::Note*> Huffman::GetAlph(const string& input)
 	for (it = prob.begin(); it != prob.end(); it++) {
 		string s = "";
 		s += it->first;
-		alph.push_back(new Note(s, it->second));
+		alph.push_back(new Note(s, it->second, it->second/(double)input.length()));
 	}
 	return alph;
 }
@@ -88,6 +97,7 @@ string Huffman::Encode(const string& input)
 			}
 		}
 	}
+	compressRatio = input.length() / (double)res.length();
 	return res;
 }
 
@@ -118,4 +128,39 @@ string Huffman::Decode(const string& input)
 		}
 	}
 	return res;
+}
+
+void Huffman::CompressFile(const string &filename, const string &compressedFile)
+{
+	string input = "", line;
+	ifstream fin(filename, ios::in);
+	if (!fin.is_open()) {
+		cout << "Can't open file " << filename << endl;
+		return;
+	}
+	while (getline(fin, line)) {
+		input += line;
+	}
+	fin.close();
+
+	string output = Encode(input);
+	ofstream fout(compressedFile, ios::out | ios::binary);
+	if (!fout.is_open()) {
+		cout << "Can't open file " << compressedFile << endl;
+		return;
+	}
+	int coutn = 0;
+	char c = 0;
+	for (size_t i = 0; i < output.length(); i++) {
+		c <<= 1;
+		if (output[i] == '1')
+			c |= 1;
+		coutn++;
+		if (coutn == 8) {
+			fout.write(&c, sizeof(char));
+			coutn = 0;
+			c = 0;
+		}
+	}
+	fout.close();
 }

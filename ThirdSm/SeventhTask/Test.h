@@ -41,6 +41,9 @@ public:
 	void testHuffman(const std::string& input);
 	// call test Huffman
 	void callTestHuffman();
+
+	// test compress file
+	void testCompressFile();
 };
 
 #endif

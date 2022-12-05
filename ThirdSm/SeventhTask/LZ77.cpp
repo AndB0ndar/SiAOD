@@ -32,17 +32,16 @@ string LZ77::Encode(const string& input)
 	int offset = 0;
 	int length = 0;
 	int len = input.length();
-	int i = 0;
-	while (i < len) {
+	for (int i = 0; i < len; i += length + 1) {
 		int i_buff = (i - buffer_size) > 0 ? (i - buffer_size) : 0;
-		offset = i;
-		FindLongestMatch(input.substr(i_buff), offset, length);
-		output += "(" + to_string(offset)
-			+ "," + to_string(length)
-			+ "," + input[i + length]
-			+ ")";
-		i += length + 1;
+		string buffer = input.substr(i_buff);
+		offset = i - i_buff;
+		FindLongestMatch(buffer, offset, length);
+		output += to_string(offset)
+			+ to_string(length)
+			+ input[i + length];
 	}
+	compressRatio = len / (double)output.length();
 	return output;
 }
 
@@ -50,29 +49,15 @@ string LZ77::Encode(const string& input)
 string LZ77::Decode(const string& input)
 {
 	string output;
+	int offset = 0;
+	int length = 0;
 	int len = input.length();
-	int i = 0;
-	while (i < len) {
-		int offset = 0, length = 0;
-		if (input[i] == '(') {
-			i++;
-			while (input[i] != ',') {
-				offset = offset * 10 + (input[i] - '0');
-				i++;
-			}
-			i++;
-			while (input[i] != ',') {
-				length = length * 10 + (input[i] - '0');
-				i++;
-			}
-			i++;
-			output += output.substr(output.length() - offset, length);
-			output += input[i];
-			i += 2;
-		} else {
-			cout << "Error: " << input[i] << endl;
-			return "";
-		}
+	for (int i = 0; i < len; i += 3) {
+		offset = input[i] - '0';
+		length = input[i+1] - '0';
+		string str = output.substr(output.length() - offset, length);
+		str += input[i+2];
+		output += str;
 	}
 	return output;
 }

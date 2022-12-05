@@ -40,6 +40,7 @@ string LZ78::Encode(const string& input)
 		output += '(' + to_string(index) + ',' + str.back() + ')';
 		i += str.length();
 	}
+	compressRatio = len / (double)output.length();
 	return output;
 }
 

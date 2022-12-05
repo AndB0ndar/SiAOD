@@ -5,6 +5,14 @@
 
 using namespace std;
 
+ShanFan::Code::~Code()
+{
+	if (left)
+		delete left;
+	if (right)
+		delete right;
+}
+
 void ShanFan::Sort(vector<Code*> &vec)
 {
 	for (size_t i = 0; i < vec.size(); i++) {
@@ -70,8 +78,8 @@ ShanFan::Code* ShanFan::GetTree(vector<Code*>& alph)
 		return root;
 	} 
 	for (Code* r : alph) {
-		root->code += r->alph;
-		root->weight = r->weight;
+		root->alph += r->alph;
+		root->weight += r->weight;
 	}
 	vector<Code*> left, right;
 	Balance(alph, left, right);
@@ -116,6 +124,7 @@ string ShanFan::Encode(const string& input)
 			}
 		}
 	}
+	compressRatio = input.length() / (double)res.length();
 	return res;
 }
 
@@ -124,11 +133,7 @@ string ShanFan::Decode(const string& input)
 	string res = "";
 	Code* temp = this->tree;
 	for (size_t i = 0; i < input.length(); i++) {
-		if (input[i] == '0') {
-			temp = temp->left;
-		} else {
-			temp = temp->right;
-		}
+		temp = input[i] == '0' ? temp->left : temp->right;
 		if (temp->alph.size() == 1) {
 			res += temp->alph;
 			temp = this->tree;
