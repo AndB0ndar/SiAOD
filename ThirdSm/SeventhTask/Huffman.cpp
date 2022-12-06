@@ -155,10 +155,8 @@ void Huffman::CompressFile(const string &filename, const string &compressedFile)
 		c <<= 1;
 		if (output[i] == '1')
 			c |= 1;
-		coutn++;
-		if (coutn == 8) {
+		if (i % 8 == 0 && i != 0) {
 			fout.write(&c, sizeof(char));
-			coutn = 0;
 			c = 0;
 		}
 	}
