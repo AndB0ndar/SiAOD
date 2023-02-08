@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <map>
 #include "ShanFan.h"
@@ -151,4 +152,42 @@ void ShanFan::ShowTree(Code *tree, int level)
 		cout << '\t';
 	cout << tree->alph << " " << tree->code << endl;
 	ShowTree(tree->left, level+1);
+}
+
+// open file
+// read file
+// encode
+// write in to file with name compressedFile binary
+// close file
+void ShanFan::CompressFile(const string& filename, const string& compressedFile)
+{
+	string input = "";
+	string line;
+	ifstream fin(filename, ios::in);
+	if (!fin.is_open()) {
+		cout << "Can't open file " << filename << endl;
+		return;
+	}
+	while (getline(fin, line)) {
+		input += line;
+	}
+	fin.close();
+
+	string output = Encode(input);
+	ofstream fout(compressedFile, ios::out | ios::binary);
+	if (!fout.is_open()) {
+		cout << "Can't open file " << compressedFile << endl;
+		return;
+	}
+	char c = 0;
+	for (size_t i = 0; i < output.length(); i++) {
+		c <<= 1;
+		if (output[i] == '1')
+			c |= 1;
+		if (i % 8 == 0 && i != 0) {
+			fout.write(&c, sizeof(char));
+			c = 0;
+		}
+	}
+	fout.close();
 }

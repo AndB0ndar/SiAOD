@@ -132,7 +132,8 @@ string Huffman::Decode(const string& input)
 
 void Huffman::CompressFile(const string &filename, const string &compressedFile)
 {
-	string input = "", line;
+	string input = "";
+	string line;
 	ifstream fin(filename, ios::in);
 	if (!fin.is_open()) {
 		cout << "Can't open file " << filename << endl;
@@ -149,7 +150,6 @@ void Huffman::CompressFile(const string &filename, const string &compressedFile)
 		cout << "Can't open file " << compressedFile << endl;
 		return;
 	}
-	int coutn = 0;
 	char c = 0;
 	for (size_t i = 0; i < output.length(); i++) {
 		c <<= 1;

@@ -40,15 +40,17 @@ void Test::callTestLZ77()
 	testLZ77("0100101010010000101");
 }
 
-void Test::testLZ78(const string& input)
+void Test::testLZ78(const string &input)
 {
 	LZ78 lz78;
-	string result = lz78.Encode(input.c_str());
+	vector<LZ78::Node> result = lz78.Encode(input.c_str());
 	cout << "Input: " << input << endl;
-	cout << "Encode: " << result << endl;
+	cout << "Encode: ";
+	for (size_t i = 0; i < result.size(); i++) {
+		cout << result[i].Show();
+	}
+	cout << endl;
 	cout << "Compress Ratio: " << lz78.GetCompressRatio() << endl;
-	result = lz78.Decode(result);
-	cout << "Decode: " << result << endl;
 }
 
 void Test::callTestLZ78()
@@ -87,13 +89,15 @@ void Test::testHuffman(const string& input)
 
 void Test::callTestHuffman()
 {
-	testHuffman(inputHuffman);
+	testHuffman(inputShanFan);
 }
 
 void Test::testCompressFile()
 {
 	Huffman huffman;
-	huffman.CompressFile("text.txt", "Compresse.bin");
+	huffman.CompressFile("text.txt", "CompresseHuff.bin");
+	ShanFan shanFan;
+	shanFan.CompressFile("text.txt", "CompresseShan.bin");
 }
 
 int main()
@@ -104,14 +108,14 @@ int main()
 	//test.callTestRLE();
 	//cout << "LZ77 encoding test" << endl;
 	//test.callTestLZ77();
-	//cout << "LZ78 encoding test" << endl;
-	//test.callTestLZ78();
+	cout << "LZ78 encoding test" << endl;
+	test.callTestLZ78();
 	//cout << "ShanFan encoding test" << endl;
 	//test.callTestShanFan();
 	//cout << "Huffman encoding test" << endl;
 	//test.callTestHuffman();
 	
-	test.testCompressFile();
+	//test.testCompressFile();
 	
 	return 0;
 }

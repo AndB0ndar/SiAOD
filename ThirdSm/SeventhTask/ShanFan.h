@@ -28,6 +28,8 @@ public:
 	std::string Decode(const std::string& input);
 	void ShowTree() { ShowTree(this->tree, 0); }
 	double GetCompressRatio() { return compressRatio; }
+
+	void CompressFile(const std::string& filename, const std::string& compressedFile);
 private:
 	Code *tree;
 	double compressRatio;

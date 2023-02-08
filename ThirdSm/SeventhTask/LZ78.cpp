@@ -4,43 +4,46 @@
 
 using namespace std;
 
-string LZ78::Encode(const string& input)
+vector<LZ78::Node> LZ78::Encode(const string &input)
 {
-	string output;
+	string in("лорлоралоранранлоран");
+	vector<Node> output;
 	vector<string> dictionary;
 	int i = 0;
-	int len = input.length();
+	int len = in.length();
 	while (i < len) {
+		string str;
 		int index = 0;
-		string str = input.substr(i, 1);
-		string buff = str;
-		size_t j = 0;
-		while (j < dictionary.size()) {
-			int size = dictionary[j].length();
-			string s, sufx;
-			if (i + 1 >= len) {
-				s = buff;
-				sufx = '\0';
-			} else if (i + size >= len) {
-				sufx = input.substr(i+1);
-				s = buff + sufx;
-				sufx += '\0';
-			} else {
-				sufx = input.substr(i+1, size);
-				s = (sufx.length() == 1)
-					? buff : buff + sufx.substr(0, sufx.length()-1);
+		bool found = false;
+		size_t k = 1, maxLen = 1;
+		while (k <= maxLen && i + k < len && !found) {
+			str = in.substr(i, k);
+			for (size_t j = 0; j < dictionary.size(); j++) {
+				if (dictionary[j] == str) {
+					index = j + 1;
+					found = true;
+					break;
+				}
+				size_t mx = dictionary[j].length();
+				if (maxLen < mx) {
+					maxLen = mx;
+				}
 			}
-			if (s == dictionary[j]) {
-				str = buff + sufx;
-				index = j + 1;
-			}
-			j++;
+			k++;
 		}
-		dictionary.push_back(str);
-		output += '(' + to_string(index) + ',' + str.back() + ')';
-		i += str.length();
+		if (found) {
+			output.push_back({ index, in[i + k - 2] });
+			dictionary.push_back(str);
+			i += k - 1;
+		}
+		else {
+			output.push_back({ 0, in[i] });
+			dictionary.push_back(str);
+			i++;
+		}
 	}
-	compressRatio = len / (double)output.length();
+	compressRatio = len / (double)output.size();
+	//output = "(0,�)(0,�)(0,�)(1,�)(3,�)(4,�)(0,�)(0,�)(5,�)(6,�)(8,)";
 	return output;
 }
 
@@ -51,6 +54,7 @@ string LZ78::Decode(const string& input)
 	int i = 0;
 	int len = input.length();
 	while (i < len) {
+		cout << "+" << output << endl;
 		int index = 0;
 		string str;
 		while (input[i] != '(') {
