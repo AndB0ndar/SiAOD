@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARR_STACK_H	arr_stack.h	2;"	d
+STRUCT_STACK_H	struct_stack.h	2;"	d
+aempty	arr_stack.h	/^bool aempty(int *stk)$/;"	f
+afull	arr_stack.h	/^bool afull(int *stk)$/;"	f
+aget	arr_stack.h	/^int aget(int *stk)$/;"	f
+alen	arr_stack.h	/^int alen(int *arr)$/;"	f
+apop	arr_stack.h	/^int apop(int **stk)$/;"	f
+apush	arr_stack.h	/^void apush(int x, int **stk)$/;"	f
+ashow	arr_stack.h	/^void ashow(int *arr)$/;"	f
+len	8_1.cpp	/^enum { stack_down, stack_up, len=10 };$/;"	e	enum:__anon1	file:
+len	8_2_3.cpp	/^enum { stack_down, stack_up, len=10 };$/;"	e	enum:__anon2	file:
+main	8_1.cpp	/^int main()$/;"	f
+main	8_2_3.cpp	/^int main()$/;"	f
+next	struct_stack.h	/^	sitem *next;$/;"	m	struct:sitem
+push	8_2_3.cpp	/^void push(int x, int *st)$/;"	f
+sempty	struct_stack.h	/^bool sempty(sitem *first)$/;"	f
+sfull	struct_stack.h	/^bool sfull(sitem *first)$/;"	f
+sget	struct_stack.h	/^int sget(sitem *first)$/;"	f
+show	8_2_3.cpp	/^void show(int *arr)$/;"	f
+sitem	struct_stack.h	/^struct sitem$/;"	s
+spop	struct_stack.h	/^int spop(sitem **first)$/;"	f
+spush	struct_stack.h	/^void spush(int x, sitem **first)$/;"	f
+sshow	struct_stack.h	/^void sshow(sitem *item)$/;"	f
+st_down	8_2_3.cpp	/^int *st_down = stack;$/;"	v
+st_up	8_2_3.cpp	/^int *st_up = stack+len-1;$/;"	v
+stack	8_2_3.cpp	/^int *stack = new int[len];$/;"	v
+stack_down	8_1.cpp	/^enum { stack_down, stack_up, len=10 };$/;"	e	enum:__anon1	file:
+stack_down	8_2_3.cpp	/^enum { stack_down, stack_up, len=10 };$/;"	e	enum:__anon2	file:
+stack_up	8_1.cpp	/^enum { stack_down, stack_up, len=10 };$/;"	e	enum:__anon1	file:
+stack_up	8_2_3.cpp	/^enum { stack_down, stack_up, len=10 };$/;"	e	enum:__anon2	file:
+value	struct_stack.h	/^	int value;$/;"	m	struct:sitem
