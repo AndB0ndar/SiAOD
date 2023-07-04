@@ -28,7 +28,7 @@ public:
 	void callTestLZ77();
 
 	// test LZ78
-	void testLZ78(const std::string& input);
+	void testLZ78(const std::string &input);
 	// call test LZ78
 	void callTestLZ78();
 
